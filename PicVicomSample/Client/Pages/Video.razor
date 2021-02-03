@@ -1,0 +1,17 @@
+﻿@page "/video"
+@inject IJSRuntime JS
+
+<hr />
+
+<div id="stream"></div>
+
+<hr/>
+
+<Chat></Chat>
+
+
+@code { protected override void OnInitialized()
+            {
+                JS.InvokeVoidAsync("JanusStreamingInit", null);
+            } 
+}
