@@ -1,8 +1,8 @@
 ﻿<StaticWebAssets Version="1.0">
-  <ContentRoot BasePath="/" Path="C:\Users\dnfls\OneDrive\바탕 화면\PicVicomSample\PicVicomSample\Client\bin\Debug\netstandard2.1\wwwroot\" />
-  <ContentRoot BasePath="/" Path="C:\Users\dnfls\OneDrive\바탕 화면\PicVicomSample\PicVicomSample\Client\wwwroot\" />
-  <ContentRoot BasePath="/Identity" Path="C:\Users\dnfls\.nuget\packages\microsoft.aspnetcore.identity.ui\3.1.11\staticwebassets\V4\" />
-  <ContentRoot BasePath="_content/BlazorStrap" Path="C:\Users\dnfls\.nuget\packages\blazorstrap\1.3.3\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/MatBlazor" Path="C:\Users\dnfls\.nuget\packages\matblazor\2.8.0\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication" Path="C:\Users\dnfls\.nuget\packages\microsoft.aspnetcore.components.webassembly.authentication\3.2.1\build\..\staticwebassets\" />
+  <ContentRoot BasePath="/" Path="C:\Users\son20\PicVicomSample\PicVicomSample\Client\bin\Debug\netstandard2.1\wwwroot\" />
+  <ContentRoot BasePath="/" Path="C:\Users\son20\PicVicomSample\PicVicomSample\Client\wwwroot\" />
+  <ContentRoot BasePath="/Identity" Path="C:\Users\son20\.nuget\packages\microsoft.aspnetcore.identity.ui\3.1.11\staticwebassets\V4\" />
+  <ContentRoot BasePath="_content/BlazorStrap" Path="C:\Users\son20\.nuget\packages\blazorstrap\1.3.3\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/MatBlazor" Path="C:\Users\son20\.nuget\packages\matblazor\2.8.0\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication" Path="C:\Users\son20\.nuget\packages\microsoft.aspnetcore.components.webassembly.authentication\3.2.1\build\..\staticwebassets\" />
 </StaticWebAssets>

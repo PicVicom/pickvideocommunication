@@ -11,8 +11,9 @@ var streaming = null;
 var opaqueId = "streamingtest-"+Janus.randomString(12);
 var spinner = null;
 var selectedStream = null;
+var janusinitsuccess = false;
 
-function JanusStreamingInit() {
+function JanusInit() {
     Janus.init({debug: "all", callback: function() {
         if(!Janus.isWebrtcSupported()) {
             bootbox.alert("No WebRTC support... ");
@@ -21,8 +22,9 @@ function JanusStreamingInit() {
         janus = new Janus(
             {
                 server: server,
-                success: function(){
-                    attach();
+                success: function () {
+                    Janus.log("janus init success");
+                    janusinitsuccess = true;
                 },
                 error: function(error) {
                     Janus.error(error);
@@ -39,7 +41,15 @@ function JanusStreamingInit() {
     }});
 }
 
-function attach() {
+function StreamingAttach() {
+    if (janus == null) {
+        janusinit();
+    }
+    if (!janusinitsuccess) {
+        Janus.log("janusinitsuccess is false");
+        window.location.reload();
+        return;
+    }
     janus.attach(
         {
             plugin: "janus.plugin.streaming",

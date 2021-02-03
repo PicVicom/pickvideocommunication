@@ -33,6 +33,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "3.1.11",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.4",
           "PicVicomSample.Client": "1.0.0",
+          "Xabe.FFmpeg": "4.4.0",
           "Microsoft.AspNetCore.Antiforgery.Reference": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -3234,6 +3235,20 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
+        }
+      },
+      "Xabe.FFmpeg/4.4.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xabe.FFmpeg.dll": {
+            "assemblyVersion": "4.4.0.0",
+            "fileVersion": "4.4.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Xabe.FFmpeg.dll": {}
         }
       },
       "PicVicomSample.Client/1.0.0": {
@@ -6462,6 +6477,13 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "Xabe.FFmpeg/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-w9CPuZjGUeRM5Q/QwdeiS9gjHFeNgYoz25x8TejV4xFiiX7QXgVR83eAoo4oOUr3PtYHAkbJgWFYcCgf/XBdqA==",
+      "path": "xabe.ffmpeg/4.4.0",
+      "hashPath": "xabe.ffmpeg.4.4.0.nupkg.sha512"
     },
     "PicVicomSample.Client/1.0.0": {
       "type": "project",
