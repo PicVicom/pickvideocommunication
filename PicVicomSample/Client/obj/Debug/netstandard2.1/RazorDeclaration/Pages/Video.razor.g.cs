@@ -13,13 +13,6 @@ namespace PicVicomSample.Client.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\son20\PicVicomSample\PicVicomSample\Client\_Imports.razor"
-using System.Net.Http;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 2 "C:\Users\son20\PicVicomSample\PicVicomSample\Client\_Imports.razor"
 using System.Net.Http.Json;
 
@@ -96,6 +89,13 @@ using BlazorStrap;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\son20\PicVicomSample\PicVicomSample\Client\Pages\Video.razor"
+using System.Net.Http;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/video")]
     public partial class Video : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -105,15 +105,41 @@ using BlazorStrap;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 13 "C:\Users\son20\PicVicomSample\PicVicomSample\Client\Pages\Video.razor"
-        protected override void OnInitialized()
-            {
-                JS.InvokeVoidAsync("StreamingAttach", null);
-            } 
+#line 20 "C:\Users\son20\PicVicomSample\PicVicomSample\Client\Pages\Video.razor"
+  
+    protected override void OnInitialized()
+    {
+        JS.InvokeVoidAsync("JanusInit", null);
+    }
+    private async Task test1()
+    {
+        var info = new StreamingInfo { RoomID = 1, Owner = "test", FileName = "test.mp4" };
+        var res = await Http.PostAsJsonAsync("streaming/enque", info);
+
+    }
+    private async Task test2()
+    {
+        var info = new StreamingInfo { RoomID = 1, Owner = "test", FileName = "test2.mp4" };
+        var res = await Http.PostAsJsonAsync("streaming/enque", info);
+    }
+    private async Task test3()
+    {
+        var info = new StreamingInfo { RoomID = 1, Owner = "test", FileName = "test3.mp4" };
+        var res = await Http.PostAsJsonAsync("streaming/enque", info);
+
+    }
+
+    private class StreamingInfo
+    {
+        public int RoomID { get; set; }
+        public string Owner { get; set; }
+        public string FileName { get; set; }
+    }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient Http { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JS { get; set; }
     }
 }

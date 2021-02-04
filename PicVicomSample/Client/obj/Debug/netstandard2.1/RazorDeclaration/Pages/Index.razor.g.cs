@@ -104,16 +104,6 @@ using BlazorStrap;
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 111 "C:\Users\son20\PicVicomSample\PicVicomSample\Client\Pages\Index.razor"
-              protected override void OnInitialized()
-        {
-            JS.InvokeVoidAsync("JanusInit", null);
-        }
-
-#line default
-#line hidden
-#nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JS { get; set; }
     }
 }

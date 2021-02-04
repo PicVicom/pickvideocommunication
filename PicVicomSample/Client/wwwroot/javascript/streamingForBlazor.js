@@ -5,13 +5,6 @@ if(window.location.protocol === 'http:')
 else
 	server = "https://" + serverHostNmae + ":8089/janus";
 
-
-var apiServer = null;
-if (window.location.protocol === 'http:')
-    apiServer = "http://" + window.location.hostname + ":" + window.location.port;
-else
-    apiServer = "https://" + window.location.hostname + ":" + window.location.port;
-
 var janus = null;
 var streaming = null;
 var opaqueId = "streamingtest-"+Janus.randomString(12);
@@ -28,8 +21,7 @@ function JanusInit() {
             {
                 server: server,
                 success: function () {
-                    Janus.log("janus init success");
-                    janusinitsuccess = true;
+                    StreamingAttach()
                 },
                 error: function(error) {
                     Janus.error(error);
@@ -47,14 +39,6 @@ function JanusInit() {
 }
 
 function StreamingAttach() {
-    if (janus == null) {
-        janusinit();
-    }
-    if (!janusinitsuccess) {
-        Janus.log("janusinitsuccess is false");
-        window.location.reload();
-        return;
-    }
     janus.attach(
         {
             plugin: "janus.plugin.streaming",
@@ -166,11 +150,10 @@ function onRemoteStream(stream) {
         });
     }
     Janus.attachMediaStream($('#remotevideo').get(0), stream);
-    Janus.log("stream =========== "+ stream)
     var videoTracks = stream.getVideoTracks();
     if(!videoTracks || videoTracks.length === 0) {
         // 비디오가 없을때
-        $('#remotevideo').hide();
+       // $('#remotevideo').hide();
         if($('#stream .no-video-container').length === 0) {
             $('#stream').append(
                 '<div class="no-video-container">' +

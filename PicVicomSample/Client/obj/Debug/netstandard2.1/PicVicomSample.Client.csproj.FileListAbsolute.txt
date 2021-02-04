@@ -1554,6 +1554,11 @@ C:\Users\son20\PicVicomSample\PicVicomSample\Client\obj\Debug\netstandard2.1\Pic
 C:\Users\son20\PicVicomSample\PicVicomSample\Client\obj\Debug\netstandard2.1\PicVicomSample.Client.csproj.CopyComplete
 C:\Users\son20\PicVicomSample\PicVicomSample\Client\obj\Debug\netstandard2.1\PicVicomSample.Client.dll
 C:\Users\son20\PicVicomSample\PicVicomSample\Client\obj\Debug\netstandard2.1\PicVicomSample.Client.pdb
-C:\Users\son20\PicVicomSample\PicVicomSample\Client\obj\Debug\netstandard2.1\integrity\lgRd76fPwF_MzLyICPfg9vwjHZt2PdvE8DNGVmVsvj4=.hash
-C:\Users\son20\PicVicomSample\PicVicomSample\Client\obj\Debug\netstandard2.1\integrity\fJskUNGJ_i88CrHDE7TD3gkVY-4DolKogzg95q8PmWM=.hash
-C:\Users\son20\PicVicomSample\PicVicomSample\Client\obj\Debug\netstandard2.1\integrity\6pdYJEB1guBoKcvBxHkHovqNo5p96nuP-hiVKESEc5s=.hash
+C:\Users\son20\PicVicomSample\PicVicomSample\Client\bin\Debug\netstandard2.1\wwwroot\_framework\_bin\System.Net.Http.Json.dll
+C:\Users\son20\PicVicomSample\PicVicomSample\Client\bin\Debug\netstandard2.1\wwwroot\_framework\_bin\System.Net.Http.Json.dll.gz
+C:\Users\son20\PicVicomSample\PicVicomSample\Client\obj\Debug\netstandard2.1\integrity\99dseBOagY3mzu5Y8Eqm8gRI_o8QbbCp7R2Ew9bQ_5E=.hash
+C:\Users\son20\PicVicomSample\PicVicomSample\Client\obj\Debug\netstandard2.1\compressed\_framework\_bin\System.Net.Http.Json.dll.gz
+C:\Users\son20\PicVicomSample\PicVicomSample\Client\obj\Debug\netstandard2.1\compressed\_framework\_bin\System.Net.Http.Json.dll.br
+C:\Users\son20\PicVicomSample\PicVicomSample\Client\obj\Debug\netstandard2.1\integrity\RmJ59RTMiQy0KhN6hCeLizO-C8J8lSu27vCBZ1OnoWA=.hash
+C:\Users\son20\PicVicomSample\PicVicomSample\Client\obj\Debug\netstandard2.1\integrity\GFC4TtSJ-o4pSXgCu-OmVPBb-CYyr-BYwxBIaxEBcuI=.hash
+C:\Users\son20\PicVicomSample\PicVicomSample\Client\obj\Debug\netstandard2.1\integrity\TOh7_2lzsSUFo_FxPV74gxHUJCxSql7ZnND1jcBZ5SM=.hash

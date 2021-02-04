@@ -63,6 +63,7 @@ namespace PicVicomSample.Server.StreamingClass
                 }
                 s.Info = info;
                 await s.DoStreaming();
+                await Task.Delay(1000);
             }
         }
 
