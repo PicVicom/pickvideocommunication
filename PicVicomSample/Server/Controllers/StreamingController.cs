@@ -53,23 +53,5 @@ namespace PicVicomSample.Server.Controllers
             Streaming.Instance.EnQue(f.RoomID, f);
         }
 
-        [HttpPost("dostreaming/{roomId}")]
-        public async Task<IActionResult> DoStreaming(int roomId)
-        {
-            if (Streaming.Instance.IsStreaming(roomId))
-            {
-                return BadRequest();
-            }
-
-            var info = Streaming.Instance.DeQue(roomId);
-            if (info == null)
-            {
-                return NotFound();
-            }
-
-            Streaming.Instance.DoStreaming(roomId, info);
-            return Ok();
-        }
-
     }
 }

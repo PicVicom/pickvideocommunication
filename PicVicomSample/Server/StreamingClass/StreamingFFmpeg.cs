@@ -10,20 +10,15 @@ namespace PicVicomSample.Server.StreamingClass
     public class StreamingFFmpeg
     {
         public StreamingInfo Info { get; set; }
-        public bool IsStreaming { get; private set; } = false;
+        public bool IsStreaming { get; set; } = false;
         public string FFmpegCommand { get; private set; } = string.Empty;
-        public CancellationTokenSource CancelToken { get; private set; } = new CancellationTokenSource();
+        public CancellationTokenSource CancelToken { get; private set; }
 
         public async Task DoStreaming()
         {
-            IsStreaming = true;
-            if (CancelToken == null)
-            {
-                CancelToken = new CancellationTokenSource();
-            }
-
             try
             {
+                CancelToken = new CancellationTokenSource();
                 var con = FFmpeg.Conversions.New();
 
                 //StreamingCommand = @$"-re -i C:\samplevideo/{filename} -map 0 -c:v copy -c:a copy -f flv rtmp://pickvideocommunication.icu:1935/{roomid}/stream";
@@ -33,13 +28,12 @@ namespace PicVicomSample.Server.StreamingClass
 
                 await con.Start(FFmpegCommand, CancelToken.Token);
             }
-            catch (Exception e)
+            catch
             {
-                throw e;
+                return;
             }
             finally
             {
-                IsStreaming = false;
                 Info = null;
             }
         }
@@ -50,7 +44,6 @@ namespace PicVicomSample.Server.StreamingClass
                 return false;
             }
             CancelToken.Cancel();
-            IsStreaming = false;
             return true;
         }
         

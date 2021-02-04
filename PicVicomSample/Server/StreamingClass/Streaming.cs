@@ -32,6 +32,7 @@ namespace PicVicomSample.Server.StreamingClass
         public async Task EnQue(int roomID, StreamingInfo info)
         {
             StreamingQue[roomID].Enqueue(info);
+            DoStreaming(roomID);
         }
 
         public StreamingInfo DeQue (int roomID)
@@ -44,11 +45,25 @@ namespace PicVicomSample.Server.StreamingClass
             return null;
         }
 
-        public async Task DoStreaming(int roomId , StreamingInfo info)
+        public async Task DoStreaming(int roomId)
         {
             var s = RoomFFmpeg[roomId];
-            s.Info = info;
-            s.DoStreaming();
+            if (s.IsStreaming)
+            {
+                return;
+            }
+            s.IsStreaming = true;
+            while (true)
+            {
+                StreamingInfo info = DeQue(roomId);
+                if (info == null)
+                {
+                    s.IsStreaming = false;
+                    return;
+                }
+                s.Info = info;
+                await s.DoStreaming();
+            }
         }
 
         public async Task<bool> StopStreaming(int roomID)
