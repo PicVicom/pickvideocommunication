@@ -11,6 +11,7 @@ namespace PicVicomSample.Server.StreamingClass
     {
         public StreamingInfo Info { get; set; }
         public bool IsStreaming { get; set; } = false;
+        public string FileBaseFolder { get; set; } = @"C:\samplevideo";
         public string FFmpegCommand { get; private set; } = string.Empty;
         public CancellationTokenSource CancelToken { get; private set; }
 
@@ -21,10 +22,10 @@ namespace PicVicomSample.Server.StreamingClass
                 CancelToken = new CancellationTokenSource();
                 var con = FFmpeg.Conversions.New();
 
-                //StreamingCommand = @$"-re -i C:\samplevideo/{filename} -map 0 -c:v copy -c:a copy -f flv rtmp://pickvideocommunication.icu:1935/{roomid}/stream";
+                //StreamingCommand = @$"-re -i {FileBaseFolder}/{filename} -map 0 -c:v copy -c:a copy -f flv rtmp://pickvideocommunication.icu:1935/{roomid}/stream";
 
                 //테스트용 코드
-                FFmpegCommand = @$"-re -i C:\samplevideo/{Info.FileName} -map 0 -c:v copy -c:a copy -f flv rtmp://pickvideocommunication.icu:1935/test/stream";
+                FFmpegCommand = @$"-re -i {FileBaseFolder}/{Info.FileName} -map 0 -c:v copy -c:a copy -f flv rtmp://pickvideocommunication.icu:1935/test/stream";
 
                 await con.Start(FFmpegCommand, CancelToken.Token);
             }
