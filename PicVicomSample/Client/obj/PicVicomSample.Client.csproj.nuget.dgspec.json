@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dnfls\\OneDrive\\바탕 화면\\PicVicomSample\\PicVicomSample\\Client\\PicVicomSample.Client.csproj": {}
+    "F:\\Blazor_Test\\PicVicomGit\\pickvideocommunication\\PicVicomSample\\Client\\PicVicomSample.Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dnfls\\OneDrive\\바탕 화면\\PicVicomSample\\PicVicomSample\\Client\\PicVicomSample.Client.csproj": {
+    "F:\\Blazor_Test\\PicVicomGit\\pickvideocommunication\\PicVicomSample\\Client\\PicVicomSample.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dnfls\\OneDrive\\바탕 화면\\PicVicomSample\\PicVicomSample\\Client\\PicVicomSample.Client.csproj",
+        "projectUniqueName": "F:\\Blazor_Test\\PicVicomGit\\pickvideocommunication\\PicVicomSample\\Client\\PicVicomSample.Client.csproj",
         "projectName": "PicVicomSample.Client",
-        "projectPath": "C:\\Users\\dnfls\\OneDrive\\바탕 화면\\PicVicomSample\\PicVicomSample\\Client\\PicVicomSample.Client.csproj",
-        "packagesPath": "C:\\Users\\dnfls\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dnfls\\OneDrive\\바탕 화면\\PicVicomSample\\PicVicomSample\\Client\\obj\\",
+        "projectPath": "F:\\Blazor_Test\\PicVicomGit\\pickvideocommunication\\PicVicomSample\\Client\\PicVicomSample.Client.csproj",
+        "packagesPath": "C:\\Users\\LG\\.nuget\\packages\\",
+        "outputPath": "F:\\Blazor_Test\\PicVicomGit\\pickvideocommunication\\PicVicomSample\\Client\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\dnfls\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\LG\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +29,6 @@
         },
         "frameworks": {
           "netstandard2.1": {
-            "targetAlias": "netstandard2.1",
             "projectReferences": {}
           }
         },
@@ -38,7 +40,6 @@
       },
       "frameworks": {
         "netstandard2.1": {
-          "targetAlias": "netstandard2.1",
           "dependencies": {
             "BlazorStrap": {
               "target": "Package",
@@ -98,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
