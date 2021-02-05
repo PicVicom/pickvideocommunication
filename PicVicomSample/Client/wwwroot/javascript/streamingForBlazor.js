@@ -5,14 +5,13 @@ if(window.location.protocol === 'http:')
 else
 	server = "https://" + serverHostNmae + ":8089/janus";
 
-
 var janus = null;
 var streaming = null;
 var opaqueId = "streamingtest-"+Janus.randomString(12);
-var spinner = null;
 var selectedStream = null;
+var janusinitsuccess = false;
 
-function JanusStreamingInit() {
+function JanusInit() {
     Janus.init({debug: "all", callback: function() {
         if(!Janus.isWebrtcSupported()) {
             bootbox.alert("No WebRTC support... ");
@@ -21,8 +20,8 @@ function JanusStreamingInit() {
         janus = new Janus(
             {
                 server: server,
-                success: function(){
-                    attach();
+                success: function () {
+                    StreamingAttach()
                 },
                 error: function(error) {
                     Janus.error(error);
@@ -39,7 +38,7 @@ function JanusStreamingInit() {
     }});
 }
 
-function attach() {
+function StreamingAttach() {
     janus.attach(
         {
             plugin: "janus.plugin.streaming",
@@ -73,9 +72,6 @@ function attach() {
                 $('#stream').append(
                     '<input class="form-control" type="text" id="datarecv" disabled></input>'
                 );
-                if(spinner)
-                    spinner.stop();
-                spinner = null;
             },
             ondata: function(data) {
                 Janus.debug("We got data from the DataChannel!", data);
@@ -112,15 +108,15 @@ function onMsg(msg, jsep) {
     if(jsep) {
         Janus.debug("Handling SDP as well...", jsep);
         var stereo = (jsep.sdp.indexOf("stereo=1") !== -1);
-        // Offer from the plugin, let's answer
+        // 대답
         streaming.createAnswer(
             {
                 jsep: jsep,
-                // We want recvonly audio/video and, if negotiated, datachannels
+                // 받기만함
                 media: { audioSend: false, videoSend: false, data: true },
                 customizeSdp: function(jsep) {
                     if(stereo && jsep.sdp.indexOf("stereo=1") == -1) {
-                        // Make sure that our offer contains stereo too
+                        // 오디오에 스테리오 설정 있으면
                         jsep.sdp = jsep.sdp.replace("useinbandfec=1", "useinbandfec=1;stereo=1");
                     }
                 },
@@ -143,29 +139,21 @@ function onRemoteStream(stream) {
         addButtons = true;
         $('#stream').append('<video class="rounded centered hide" id="remotevideo" width="50%" height="50%" playsinline controls autoplay/>');
         $('#remotevideo').get(0).volume = 0.5;
-        // Show the stream and hide the spinner when we get a playing event
         $("#remotevideo").bind("playing", function () {
             Janus.log(" ::: playing stream :::");
             $('#waitingvideo').remove();
             if(this.videoWidth)
                 $('#remotevideo').removeClass('hide').show();
-            if(spinner)
-                spinner.stop();
-            spinner = null;
             var videoTracks = stream.getVideoTracks();
             if(!videoTracks || videoTracks.length === 0)
                 return;
         });
     }
     Janus.attachMediaStream($('#remotevideo').get(0), stream);
-    Janus.log("stream =========== "+ stream)
-    // $("#remotevideo").get(0).pause();
-    // $("#remotevideo").get(0).play();
-    // $("#remotevideo").get(0).volume = 1;
     var videoTracks = stream.getVideoTracks();
     if(!videoTracks || videoTracks.length === 0) {
-        // No remote video
-        $('#remotevideo').hide();
+        // 비디오가 없을때
+       // $('#remotevideo').hide();
         if($('#stream .no-video-container').length === 0) {
             $('#stream').append(
                 '<div class="no-video-container">' +
@@ -215,14 +203,6 @@ function startStream() {
 	}
 	var body = { request: "watch", id: parseInt(selectedStream) || selectedStream};
 	streaming.send({ message: body });
-	// No remote video yet
-	// $('#stream').append('<video class="rounded centered" id="waitingvideo" width="100%" height="100%" />');
-	if(spinner == null) {
-		var target = document.getElementById('stream');
-		spinner = new Spinner({top:100}).spin(target);
-	} else {
-		spinner.spin();
-	}
 }
 
 function stopStream() {

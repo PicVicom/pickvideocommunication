@@ -1,17 +1,49 @@
 ﻿@page "/video"
 @inject IJSRuntime JS
+@using System.Net.Http
+@inject HttpClient Http
 
 <hr />
 
 <div id="stream"></div>
-
-<hr/>
+<div>
+    <button class="btn btn-primary" @onclick="test1">AddTestVideo1</button>
+    <button class="btn btn-primary" @onclick="test2">AddTestVideo2</button>
+    <button class="btn btn-primary" @onclick="test3">AddTestVideo3</button>
+</div>
+<hr />
 
 <Chat></Chat>
 
 
-@code { protected override void OnInitialized()
-            {
-                JS.InvokeVoidAsync("JanusStreamingInit", null);
-            } 
+@code 
+{ 
+    protected override void OnInitialized()
+    {
+        JS.InvokeVoidAsync("JanusInit", null);
+    }
+    private async Task test1()
+    {
+        var info = new StreamingInfo { RoomID = 1, Owner = "test", FileName = "test.mp4" };
+        var res = await Http.PostAsJsonAsync("streaming/enque", info);
+
+    }
+    private async Task test2()
+    {
+        var info = new StreamingInfo { RoomID = 1, Owner = "test", FileName = "test2.mp4" };
+        var res = await Http.PostAsJsonAsync("streaming/enque", info);
+    }
+    private async Task test3()
+    {
+        var info = new StreamingInfo { RoomID = 1, Owner = "test", FileName = "test3.mp4" };
+        var res = await Http.PostAsJsonAsync("streaming/enque", info);
+
+    }
+
+    private class StreamingInfo
+    {
+        public int RoomID { get; set; }
+        public string Owner { get; set; }
+        public string FileName { get; set; }
+    }
 }

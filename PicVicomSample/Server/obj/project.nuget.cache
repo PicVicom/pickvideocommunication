@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
+  "dgSpecHash": "B8l8DB+QRDersfa9iKeQhaoJfo3yUFuNGiVBdiLPJsXrG82pHGMvVwRlkCZkybkvEfAVOgLpyws1/ILfHyogDQ==",
+=======
   "dgSpecHash": "bQPS8ZxrgyiP5PMn7qeZCbtjPvAOoEVkATg/0hIyZKP5hmmNVOWL29R+WLTqT0rr1mbruuAjbilNbWCLlzlKUg==",
+>>>>>>> master
   "success": true,
   "projectFilePath": "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Server\\PicVicomSample.Server.csproj",
   "expectedPackageFiles": [
@@ -252,7 +256,12 @@
     "C:\\Users\\son20\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\son20\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\son20\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
+<<<<<<< HEAD
+    "C:\\Users\\son20\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\son20\\.nuget\\packages\\xabe.ffmpeg\\4.4.0\\xabe.ffmpeg.4.4.0.nupkg.sha512"
+=======
     "C:\\Users\\son20\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+>>>>>>> master
   ],
   "logs": []
 }

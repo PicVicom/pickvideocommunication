@@ -3837,6 +3837,18 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Xabe.FFmpeg/4.4.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Xabe.FFmpeg.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xabe.FFmpeg.dll": {}
+        }
+      },
       "PicVicomSample.Client/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
@@ -11461,6 +11473,19 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "Xabe.FFmpeg/4.4.0": {
+      "sha512": "w9CPuZjGUeRM5Q/QwdeiS9gjHFeNgYoz25x8TejV4xFiiX7QXgVR83eAoo4oOUr3PtYHAkbJgWFYcCgf/XBdqA==",
+      "type": "package",
+      "path": "xabe.ffmpeg/4.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Xabe.FFmpeg.dll",
+        "lib/netstandard2.0/Xabe.FFmpeg.xml",
+        "xabe.ffmpeg.4.4.0.nupkg.sha512",
+        "xabe.ffmpeg.nuspec"
+      ]
+    },
     "PicVicomSample.Client/1.0.0": {
       "type": "project",
       "path": "../Client/PicVicomSample.Client.csproj",
@@ -11477,7 +11502,8 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.11",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.11",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.4",
-      "PicVicomSample.Client >= 1.0.0"
+      "PicVicomSample.Client >= 1.0.0",
+      "Xabe.FFmpeg >= 4.4.0"
     ]
   },
   "packageFolders": {
@@ -11561,6 +11587,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[3.1.4, )"
+          },
+          "Xabe.FFmpeg": {
+            "target": "Package",
+            "version": "[4.4.0, )"
           }
         },
         "imports": [
