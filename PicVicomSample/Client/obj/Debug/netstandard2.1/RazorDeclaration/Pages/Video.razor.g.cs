@@ -13,6 +13,16 @@ namespace PicVicomSample.Client.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
+<<<<<<< HEAD
+=======
+#line 1 "C:\Users\son20\PicVicomSample\PicVicomSample\Client\_Imports.razor"
+using System.Net.Http;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+>>>>>>> master
 #line 2 "C:\Users\son20\PicVicomSample\PicVicomSample\Client\_Imports.razor"
 using System.Net.Http.Json;
 
@@ -105,6 +115,7 @@ using System.Net.Http;
         }
         #pragma warning restore 1998
 #nullable restore
+<<<<<<< HEAD
 #line 20 "C:\Users\son20\PicVicomSample\PicVicomSample\Client\Pages\Video.razor"
   
     protected override void OnInitialized()
@@ -135,6 +146,13 @@ using System.Net.Http;
         public string Owner { get; set; }
         public string FileName { get; set; }
     }
+=======
+#line 13 "C:\Users\son20\PicVicomSample\PicVicomSample\Client\Pages\Video.razor"
+        protected override void OnInitialized()
+            {
+                JS.InvokeVoidAsync("JanusStreamingInit", null);
+            } 
+>>>>>>> master
 
 #line default
 #line hidden
