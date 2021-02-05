@@ -6,12 +6,13 @@
 
 <AuthorizeView>
     <Authorized>
-        <a href="authentication/profile">안녕하세요. @context.User.Identity.Name 님!</a>
-        <button class="nav-link btn btn-link" @onclick="BeginSignOut">로그아웃</button>
+        <a href="authentication/profile" class="nav-link text-dark">안녕하세요. @context.User.Identity.Name 님!</a>
+        <button class="nav-link text-dark btn btn-link" @onclick="BeginSignOut">로그아웃</button>
+
     </Authorized>
     <NotAuthorized>
-        <a href="authentication/register">회원가입</a>
-        <a href="authentication/login">로그인</a>
+        <a href="authentication/register" class="nav-link text-dark">회원가입</a>
+        <a href="authentication/login" class="nav-link text-dark">로그인</a>
     </NotAuthorized>
 </AuthorizeView>
 

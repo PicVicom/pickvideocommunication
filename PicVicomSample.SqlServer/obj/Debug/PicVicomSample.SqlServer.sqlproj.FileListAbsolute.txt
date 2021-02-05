@@ -16,3 +16,15 @@ C:\Users\dnfls\OneDrive\바탕 화면\PicVicomSample\PicVicomSample.SqlServer\ob
 C:\Users\dnfls\OneDrive\바탕 화면\PicVicomSample\PicVicomSample.SqlServer\obj\Debug\refactor.xml
 C:\Users\dnfls\OneDrive\바탕 화면\PicVicomSample\PicVicomSample.SqlServer\obj\Debug\postdeploy.sql
 C:\Users\dnfls\OneDrive\바탕 화면\PicVicomSample\PicVicomSample.SqlServer\obj\Debug\predeploy.sql
+F:\Blazor_Test\PicVicomGit\pickvideocommunication\PicVicomSample.SqlServer\bin\Debug\PicVicomSample.SqlServer.dacpac
+F:\Blazor_Test\PicVicomGit\pickvideocommunication\PicVicomSample.SqlServer\bin\Debug\PicVicomSample.SqlServer.dll
+F:\Blazor_Test\PicVicomGit\pickvideocommunication\PicVicomSample.SqlServer\bin\Debug\PicVicomSample.SqlServer.pdb
+F:\Blazor_Test\PicVicomGit\pickvideocommunication\PicVicomSample.SqlServer\obj\Debug\PicVicomSample.SqlServer.sqlprojAssemblyReference.cache
+F:\Blazor_Test\PicVicomGit\pickvideocommunication\PicVicomSample.SqlServer\obj\Debug\PicVicomSample.SqlServer.dll
+F:\Blazor_Test\PicVicomGit\pickvideocommunication\PicVicomSample.SqlServer\obj\Debug\PicVicomSample.SqlServer.pdb
+C:\Users\son20\PicVicomSample\PicVicomSample.SqlServer\bin\Debug\PicVicomSample.SqlServer.dacpac
+C:\Users\son20\PicVicomSample\PicVicomSample.SqlServer\bin\Debug\PicVicomSample.SqlServer.dll
+C:\Users\son20\PicVicomSample\PicVicomSample.SqlServer\bin\Debug\PicVicomSample.SqlServer.pdb
+C:\Users\son20\PicVicomSample\PicVicomSample.SqlServer\obj\Debug\PicVicomSample.SqlServer.sqlprojAssemblyReference.cache
+C:\Users\son20\PicVicomSample\PicVicomSample.SqlServer\obj\Debug\PicVicomSample.SqlServer.dll
+C:\Users\son20\PicVicomSample\PicVicomSample.SqlServer\obj\Debug\PicVicomSample.SqlServer.pdb
