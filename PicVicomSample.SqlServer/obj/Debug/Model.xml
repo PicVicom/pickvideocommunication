@@ -12,7 +12,7 @@
 		</CustomData>
 		<CustomData Category="Reference" Type="Assembly">
 			<Metadata Name="LogicalName" Value="PicVicomSample.SqlServer.dll" />
-			<Metadata Name="FileName" Value="C:\USERS\DNFLS\ONEDRIVE\바탕 화면\PICVICOMSAMPLE\PICVICOMSAMPLE.SQLSERVER\OBJ\DEBUG\PICVICOMSAMPLE.SQLSERVER.DLL" />
+			<Metadata Name="FileName" Value="C:\USERS\SON20\PICVICOMSAMPLE\PICVICOMSAMPLE.SQLSERVER\OBJ\DEBUG\PICVICOMSAMPLE.SQLSERVER.DLL" />
 			<Metadata Name="AssemblyName" Value="PicVicomSample.SqlServer" />
 			<Metadata Name="PermissionSet" Value="SAFE" />
 			<Metadata Name="Owner" Value="" />
@@ -20,7 +20,7 @@
 			<Metadata Name="IsVisible" Value="True" />
 			<Metadata Name="IsModelAware" Value="True" />
 			<Metadata Name="SkipCreationIfEmpty" Value="True" />
-			<Metadata Name="AssemblySymbolsName" Value="C:\Users\dnfls\OneDrive\바탕 화면\PicVicomSample\PicVicomSample.SqlServer\obj\Debug\PicVicomSample.SqlServer.pdb" />
+			<Metadata Name="AssemblySymbolsName" Value="C:\Users\son20\PicVicomSample\PicVicomSample.SqlServer\obj\Debug\PicVicomSample.SqlServer.pdb" />
 		</CustomData>
 		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
 	</Header>
