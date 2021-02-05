@@ -11481,20 +11481,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dnfls\\.nuget\\packages\\": {}
+    "C:\\Users\\son20\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dnfls\\OneDrive\\바탕 화면\\PicVicomSample\\PicVicomSample\\Server\\PicVicomSample.Server.csproj",
+      "projectUniqueName": "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Server\\PicVicomSample.Server.csproj",
       "projectName": "PicVicomSample.Server",
-      "projectPath": "C:\\Users\\dnfls\\OneDrive\\바탕 화면\\PicVicomSample\\PicVicomSample\\Server\\PicVicomSample.Server.csproj",
-      "packagesPath": "C:\\Users\\dnfls\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dnfls\\OneDrive\\바탕 화면\\PicVicomSample\\PicVicomSample\\Server\\obj\\",
+      "projectPath": "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Server\\PicVicomSample.Server.csproj",
+      "packagesPath": "C:\\Users\\son20\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Server\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\dnfls\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\son20\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -11507,8 +11512,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\dnfls\\OneDrive\\바탕 화면\\PicVicomSample\\PicVicomSample\\Client\\PicVicomSample.Client.csproj": {
-              "projectPath": "C:\\Users\\dnfls\\OneDrive\\바탕 화면\\PicVicomSample\\PicVicomSample\\Client\\PicVicomSample.Client.csproj"
+            "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Client\\PicVicomSample.Client.csproj": {
+              "projectPath": "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Client\\PicVicomSample.Client.csproj"
             }
           }
         }
