@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Server\\PicVicomSample.Server.csproj": {}
+    "C:\\Users\\son20\\pickvideocommunication\\PicVicomSample\\Server\\PicVicomSample.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Client\\PicVicomSample.Client.csproj": {
+    "C:\\Users\\son20\\pickvideocommunication\\PicVicomSample\\Client\\PicVicomSample.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Client\\PicVicomSample.Client.csproj",
+        "projectUniqueName": "C:\\Users\\son20\\pickvideocommunication\\PicVicomSample\\Client\\PicVicomSample.Client.csproj",
         "projectName": "PicVicomSample.Client",
-        "projectPath": "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Client\\PicVicomSample.Client.csproj",
+        "projectPath": "C:\\Users\\son20\\pickvideocommunication\\PicVicomSample\\Client\\PicVicomSample.Client.csproj",
         "packagesPath": "C:\\Users\\son20\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Client\\obj\\",
+        "outputPath": "C:\\Users\\son20\\pickvideocommunication\\PicVicomSample\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -82,6 +82,10 @@
               "target": "Package",
               "version": "[3.1.6, )"
             },
+            "Radzen.Blazor": {
+              "target": "Package",
+              "version": "[3.0.7, )"
+            },
             "System.Net.Http.Json": {
               "target": "Package",
               "version": "[3.2.0, )"
@@ -106,14 +110,14 @@
         }
       }
     },
-    "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Server\\PicVicomSample.Server.csproj": {
+    "C:\\Users\\son20\\pickvideocommunication\\PicVicomSample\\Server\\PicVicomSample.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Server\\PicVicomSample.Server.csproj",
+        "projectUniqueName": "C:\\Users\\son20\\pickvideocommunication\\PicVicomSample\\Server\\PicVicomSample.Server.csproj",
         "projectName": "PicVicomSample.Server",
-        "projectPath": "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Server\\PicVicomSample.Server.csproj",
+        "projectPath": "C:\\Users\\son20\\pickvideocommunication\\PicVicomSample\\Server\\PicVicomSample.Server.csproj",
         "packagesPath": "C:\\Users\\son20\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Server\\obj\\",
+        "outputPath": "C:\\Users\\son20\\pickvideocommunication\\PicVicomSample\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -134,8 +138,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Client\\PicVicomSample.Client.csproj": {
-                "projectPath": "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Client\\PicVicomSample.Client.csproj"
+              "C:\\Users\\son20\\pickvideocommunication\\PicVicomSample\\Client\\PicVicomSample.Client.csproj": {
+                "projectPath": "C:\\Users\\son20\\pickvideocommunication\\PicVicomSample\\Client\\PicVicomSample.Client.csproj"
               }
             }
           }

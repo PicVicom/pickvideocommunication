@@ -7,9 +7,10 @@
 
 <div id="stream"></div>
 <div>
-    <button class="btn btn-primary" @onclick="test1">AddTestVideo1</button>
-    <button class="btn btn-primary" @onclick="test2">AddTestVideo2</button>
-    <button class="btn btn-primary" @onclick="test3">AddTestVideo3</button>
+    <RadzenUpload Url=@uploadUrl Progress="@((args) => OnProgress(args, "Single file upload"))" />
+</div>
+<div>
+    <h4>@progress%</h4>
 </div>
 <hr />
 
@@ -18,26 +19,25 @@
 
 @code 
 { 
+
+    public int roomID = 1;
+    public string Owner = "test";
+
+    public string uploadUrl = string.Empty;
+
     protected override void OnInitialized()
     {
         JS.InvokeVoidAsync("JanusInit", null);
+        uploadUrl = @$"upload/{roomID}/{Owner}";
     }
-    private async Task test1()
-    {
-        var info = new StreamingInfo { RoomID = 1, Owner = "test", FileName = "test.mp4" };
-        var res = await Http.PostAsJsonAsync("streaming/enque", info);
 
-    }
-    private async Task test2()
-    {
-        var info = new StreamingInfo { RoomID = 1, Owner = "test", FileName = "test2.mp4" };
-        var res = await Http.PostAsJsonAsync("streaming/enque", info);
-    }
-    private async Task test3()
-    {
-        var info = new StreamingInfo { RoomID = 1, Owner = "test", FileName = "test3.mp4" };
-        var res = await Http.PostAsJsonAsync("streaming/enque", info);
+    int progress;
+    string info;
 
+    void OnProgress(Radzen.UploadProgressArgs args, string name)
+    {
+        this.info = $"% '{name}' / {args.Loaded} of {args.Total} bytes.";
+        this.progress = args.Progress;
     }
 
     private class StreamingInfo

@@ -827,7 +827,7 @@
           "lib/netstandard2.0/Microsoft.CodeAnalysis.Razor.dll": {}
         }
       },
-      "Microsoft.CSharp/4.5.0": {
+      "Microsoft.CSharp/4.7.0": {
         "type": "package",
         "compile": {
           "ref/netstandard2.0/Microsoft.CSharp.dll": {}
@@ -1315,6 +1315,27 @@
         },
         "runtime": {
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
+        }
+      },
+      "Radzen.Blazor/3.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.0",
+          "Microsoft.AspNetCore.Components.Web": "3.1.0",
+          "Microsoft.CSharp": "4.7.0",
+          "System.Linq.Dynamic.Core": "1.2.2"
+        },
+        "compile": {
+          "lib/netstandard2.1/Radzen.Blazor.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Radzen.Blazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/Radzen.Blazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Radzen.Blazor.props": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -1862,6 +1883,18 @@
           "lib/netstandard1.6/System.Linq.dll": {}
         }
       },
+      "System.Linq.Dynamic.Core/1.2.2": {
+        "type": "package",
+        "dependencies": {
+          "System.Reflection.Emit": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Linq.Dynamic.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Linq.Dynamic.Core.dll": {}
+        }
+      },
       "System.Linq.Expressions/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2037,7 +2070,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.1/_._": {}
+          "ref/netstandard1.1/System.Reflection.Emit.dll": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.Reflection.Emit.dll": {}
@@ -2051,7 +2084,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.0/_._": {}
+          "ref/netstandard1.0/System.Reflection.Emit.ILGeneration.dll": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.Reflection.Emit.ILGeneration.dll": {}
@@ -4148,10 +4181,10 @@
         "microsoft.codeanalysis.razor.nuspec"
       ]
     },
-    "Microsoft.CSharp/4.5.0": {
-      "sha512": "kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
+    "Microsoft.CSharp/4.7.0": {
+      "sha512": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
       "type": "package",
-      "path": "microsoft.csharp/4.5.0",
+      "path": "microsoft.csharp/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4164,6 +4197,7 @@
         "lib/netcoreapp2.0/_._",
         "lib/netstandard1.3/Microsoft.CSharp.dll",
         "lib/netstandard2.0/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.xml",
         "lib/portable-net45+win8+wp8+wpa81/_._",
         "lib/uap10.0.16299/_._",
         "lib/win8/_._",
@@ -4173,7 +4207,7 @@
         "lib/xamarinmac20/_._",
         "lib/xamarintvos10/_._",
         "lib/xamarinwatchos10/_._",
-        "microsoft.csharp.4.5.0.nupkg.sha512",
+        "microsoft.csharp.4.7.0.nupkg.sha512",
         "microsoft.csharp.nuspec",
         "ref/MonoAndroid10/_._",
         "ref/MonoTouch10/_._",
@@ -4797,6 +4831,50 @@
         "lib/netstandard1.3/Newtonsoft.Json.Bson.xml",
         "newtonsoft.json.bson.1.0.1.nupkg.sha512",
         "newtonsoft.json.bson.nuspec"
+      ]
+    },
+    "Radzen.Blazor/3.0.7": {
+      "sha512": "qHgImCLyAcPSqZ6IY9Fh8PVbtp7Q1cbpmQUWF6lS5BXh2oxQ/gBGKIO7u84ViwwTMdGZzLwlfPO3H5zWNOtlVw==",
+      "type": "package",
+      "path": "radzen.blazor/3.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "build/Radzen.Blazor.props",
+        "buildMultiTargeting/Radzen.Blazor.props",
+        "buildTransitive/Radzen.Blazor.props",
+        "icon.png",
+        "lib/net5.0/Radzen.Blazor.dll",
+        "lib/netstandard2.1/Radzen.Blazor.dll",
+        "radzen.blazor.3.0.7.nupkg.sha512",
+        "radzen.blazor.nuspec",
+        "staticwebassets/Radzen.Blazor.js",
+        "staticwebassets/css/dark-base.css",
+        "staticwebassets/css/dark.css",
+        "staticwebassets/css/default-base.css",
+        "staticwebassets/css/default.css",
+        "staticwebassets/css/humanistic-base.css",
+        "staticwebassets/css/humanistic.css",
+        "staticwebassets/css/software-base.css",
+        "staticwebassets/css/software.css",
+        "staticwebassets/fonts/MaterialIcons-Regular.woff",
+        "staticwebassets/fonts/SourceSansPro-Black.woff",
+        "staticwebassets/fonts/SourceSansPro-BlackIt.woff",
+        "staticwebassets/fonts/SourceSansPro-Bold.woff",
+        "staticwebassets/fonts/SourceSansPro-BoldIt.woff",
+        "staticwebassets/fonts/SourceSansPro-ExtraLight.woff",
+        "staticwebassets/fonts/SourceSansPro-ExtraLightIt.woff",
+        "staticwebassets/fonts/SourceSansPro-It.woff",
+        "staticwebassets/fonts/SourceSansPro-Light.woff",
+        "staticwebassets/fonts/SourceSansPro-LightIt.woff",
+        "staticwebassets/fonts/SourceSansPro-Regular.woff",
+        "staticwebassets/fonts/SourceSansPro-Semibold.woff",
+        "staticwebassets/fonts/SourceSansPro-SemiboldIt.woff",
+        "staticwebassets/fonts/roboto-v15-latin-300.woff",
+        "staticwebassets/fonts/roboto-v15-latin-700.woff",
+        "staticwebassets/fonts/roboto-v15-latin-regular.woff"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -6295,6 +6373,42 @@
         "ref/xamarinwatchos10/_._",
         "system.linq.4.3.0.nupkg.sha512",
         "system.linq.nuspec"
+      ]
+    },
+    "System.Linq.Dynamic.Core/1.2.2": {
+      "sha512": "I3IaeyTL7eXF1EmRe5K5qpFomnD0Fd8uLfv7SqBC9IniiM2xaUDMarjDsHT1Qbvv40irH0278RkzEu0ajHKh+w==",
+      "type": "package",
+      "path": "system.linq.dynamic.core/1.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/System.Linq.Dynamic.Core.dll",
+        "lib/net35/System.Linq.Dynamic.Core.pdb",
+        "lib/net35/System.Linq.Dynamic.Core.xml",
+        "lib/net40/System.Linq.Dynamic.Core.dll",
+        "lib/net40/System.Linq.Dynamic.Core.pdb",
+        "lib/net40/System.Linq.Dynamic.Core.xml",
+        "lib/net45/System.Linq.Dynamic.Core.dll",
+        "lib/net45/System.Linq.Dynamic.Core.pdb",
+        "lib/net45/System.Linq.Dynamic.Core.xml",
+        "lib/net46/System.Linq.Dynamic.Core.dll",
+        "lib/net46/System.Linq.Dynamic.Core.pdb",
+        "lib/net46/System.Linq.Dynamic.Core.xml",
+        "lib/netcoreapp2.1/System.Linq.Dynamic.Core.dll",
+        "lib/netcoreapp2.1/System.Linq.Dynamic.Core.pdb",
+        "lib/netcoreapp2.1/System.Linq.Dynamic.Core.xml",
+        "lib/netstandard1.3/System.Linq.Dynamic.Core.dll",
+        "lib/netstandard1.3/System.Linq.Dynamic.Core.pdb",
+        "lib/netstandard1.3/System.Linq.Dynamic.Core.xml",
+        "lib/netstandard2.0/System.Linq.Dynamic.Core.dll",
+        "lib/netstandard2.0/System.Linq.Dynamic.Core.pdb",
+        "lib/netstandard2.0/System.Linq.Dynamic.Core.xml",
+        "lib/uap10.0/System.Linq.Dynamic.Core.dll",
+        "lib/uap10.0/System.Linq.Dynamic.Core.pdb",
+        "lib/uap10.0/System.Linq.Dynamic.Core.pri",
+        "lib/uap10.0/System.Linq.Dynamic.Core.xml",
+        "system.linq.dynamic.core.1.2.2.nupkg.sha512",
+        "system.linq.dynamic.core.nuspec"
       ]
     },
     "System.Linq.Expressions/4.3.0": {
@@ -8979,6 +9093,7 @@
       "Microsoft.AspNetCore.Mvc.RazorPages >= 2.2.5",
       "Microsoft.AspNetCore.SignalR.Client >= 3.1.10",
       "Microsoft.Extensions.Http >= 3.1.6",
+      "Radzen.Blazor >= 3.0.7",
       "System.Net.Http.Json >= 3.2.0"
     ]
   },
@@ -8989,11 +9104,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Client\\PicVicomSample.Client.csproj",
+      "projectUniqueName": "C:\\Users\\son20\\pickvideocommunication\\PicVicomSample\\Client\\PicVicomSample.Client.csproj",
       "projectName": "PicVicomSample.Client",
-      "projectPath": "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Client\\PicVicomSample.Client.csproj",
+      "projectPath": "C:\\Users\\son20\\pickvideocommunication\\PicVicomSample\\Client\\PicVicomSample.Client.csproj",
       "packagesPath": "C:\\Users\\son20\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Client\\obj\\",
+      "outputPath": "C:\\Users\\son20\\pickvideocommunication\\PicVicomSample\\Client\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -9064,6 +9179,10 @@
             "target": "Package",
             "version": "[3.1.6, )"
           },
+          "Radzen.Blazor": {
+            "target": "Package",
+            "version": "[3.0.7, )"
+          },
           "System.Net.Http.Json": {
             "target": "Package",
             "version": "[3.2.0, )"
@@ -9087,13 +9206,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "캐시 파일 C:\\Users\\son20\\PicVicomSample\\PicVicomSample\\Client\\obj\\project.nuget.cache을(를) 읽는 동안 문제가 발생했습니다. Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
