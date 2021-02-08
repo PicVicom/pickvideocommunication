@@ -1,6 +1,7 @@
 ﻿@page "/video"
 @inject IJSRuntime JS
 @inject HttpClient Http
+@inject AuthenticationStateProvider AuthenticationStateProvider
 
 <hr />
 
@@ -11,22 +12,43 @@
 </div>
 <hr />
 
-<Chat RoomID="@roomID"></Chat>
+<Chat RoomID="@roomID" UserId="@UserId"></Chat>
 
 <QueInfo></QueInfo>
 
-@code 
-{ 
+@code
+{
 
     public int roomID = 1;
-    public string Owner = "test";
 
     public string uploadUrl = string.Empty;
 
+    private IEnumerable<Claim> _claims = Enumerable.Empty<Claim>();
+    private string UserId;
+
+    private async Task GetClaimsPrincipalData()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity.IsAuthenticated)
+        {
+            UserId = user.Identity.Name;
+            _claims = user.Claims;
+        }
+        else
+        {
+            Random r = new Random();
+            var userUid = r.Next(1000, 100000);
+            UserId = $"ㅇㅇ({userUid})";
+        }
+    }
+
     protected override void OnInitialized()
     {
+        GetClaimsPrincipalData();
         JS.InvokeVoidAsync("JanusInit", null);
-        uploadUrl = @$"upload/{roomID}/{Owner}";
+        uploadUrl = @$"upload/{roomID}/{UserId}";
     }
 
     int progress;

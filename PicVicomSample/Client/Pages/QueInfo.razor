@@ -17,10 +17,12 @@
 </div>
 
 @code {
+    [Parameter]
+    public int RoomId { get; set; }
+
     private HubConnection hubConnection;
     private List<string> messages = new List<string>();
     private int Count;
-    private int roomId = 1;
 
     protected override async Task OnInitializedAsync()
     {
@@ -42,7 +44,7 @@
 
         await hubConnection.StartAsync();
 
-        await Http.PostAsync(@$"streaming/{roomId}", null);
+        await Http.PostAsync(@$"streaming/{RoomId}", null);
     }
 
     public bool IsConnected =>
@@ -55,7 +57,7 @@
 
     public async Task GetStreamingQueInfo()
     {
-        await Http.PostAsync(@$"streaming/{roomId}", null);
+        await Http.PostAsync(@$"streaming/{RoomId}", null);
     }
 
     public class StreamingQueInfo

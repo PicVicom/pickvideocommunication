@@ -141,10 +141,12 @@ using Radzen.Blazor;
 #nullable restore
 #line 19 "C:\Users\son20\pickvideocommunication\PicVicomSample\Client\Pages\QueInfo.razor"
        
+    [Parameter]
+    public int RoomId { get; set; }
+
     private HubConnection hubConnection;
     private List<string> messages = new List<string>();
     private int Count;
-    private int roomId = 1;
 
     protected override async Task OnInitializedAsync()
     {
@@ -166,7 +168,7 @@ using Radzen.Blazor;
 
         await hubConnection.StartAsync();
 
-        await Http.PostAsync(@$"streaming/{roomId}", null);
+        await Http.PostAsync(@$"streaming/{RoomId}", null);
     }
 
     public bool IsConnected =>
@@ -179,7 +181,7 @@ using Radzen.Blazor;
 
     public async Task GetStreamingQueInfo()
     {
-        await Http.PostAsync(@$"streaming/{roomId}", null);
+        await Http.PostAsync(@$"streaming/{RoomId}", null);
     }
 
     public class StreamingQueInfo

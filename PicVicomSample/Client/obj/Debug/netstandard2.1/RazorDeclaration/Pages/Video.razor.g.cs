@@ -140,18 +140,39 @@ using Radzen.Blazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 19 "C:\Users\son20\pickvideocommunication\PicVicomSample\Client\Pages\Video.razor"
-  
+#line 20 "C:\Users\son20\pickvideocommunication\PicVicomSample\Client\Pages\Video.razor"
+ 
 
     public int roomID = 1;
-    public string Owner = "test";
 
     public string uploadUrl = string.Empty;
 
+    private IEnumerable<Claim> _claims = Enumerable.Empty<Claim>();
+    private string UserId;
+
+    private async Task GetClaimsPrincipalData()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity.IsAuthenticated)
+        {
+            UserId = user.Identity.Name;
+            _claims = user.Claims;
+        }
+        else
+        {
+            Random r = new Random();
+            var userUid = r.Next(1000, 100000);
+            UserId = $"ㅇㅇ({userUid})";
+        }
+    }
+
     protected override void OnInitialized()
     {
+        GetClaimsPrincipalData();
         JS.InvokeVoidAsync("JanusInit", null);
-        uploadUrl = @$"upload/{roomID}/{Owner}";
+        uploadUrl = @$"upload/{roomID}/{UserId}";
     }
 
     int progress;
@@ -171,6 +192,7 @@ using Radzen.Blazor;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthenticationStateProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient Http { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JS { get; set; }
     }

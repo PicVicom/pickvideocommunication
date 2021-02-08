@@ -140,39 +140,22 @@ using Radzen.Blazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 30 "C:\Users\son20\pickvideocommunication\PicVicomSample\Client\Pages\Chat.razor"
+#line 25 "C:\Users\son20\pickvideocommunication\PicVicomSample\Client\Pages\Chat.razor"
         
     [Parameter]
     public int RoomID { get; set; }
 
+    [Parameter]
+    public string UserId { get; set; }
+
     private HubConnection hubConnection;
     private List<string> messages = new List<string>();
-    private string UserId;
     private string messageInput;
 
-    private IEnumerable<Claim> _claims = Enumerable.Empty<Claim>();
-
-    private async Task GetClaimsPrincipalData()
-    {
-        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        var user = authState.User;
-
-        if (user.Identity.IsAuthenticated)
-        {
-            UserId = user.Identity.Name;
-            _claims = user.Claims;
-        }
-        else
-        {
-            Random r = new Random();
-            var userUid = r.Next(1000, 10000);
-            UserId = $"ㅇㅇ({userUid})";
-        }
-    }
 
     #region 채팅
     Task Send() =>
-hubConnection.SendAsync("SendMessage", UserId, messageInput);
+        hubConnection.SendAsync("SendMessage", UserId, messageInput);
 
     public bool IsConnected =>
         hubConnection.State == HubConnectionState.Connected;
@@ -186,10 +169,6 @@ hubConnection.SendAsync("SendMessage", UserId, messageInput);
 
     protected override async Task OnInitializedAsync()
     {
-        await GetClaimsPrincipalData();
-
-
-
         hubConnection = new HubConnectionBuilder()
         .WithUrl(NavigationManager.ToAbsoluteUri("/chathub"))
         .Build();
