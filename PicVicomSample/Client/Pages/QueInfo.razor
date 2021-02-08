@@ -1,0 +1,75 @@
+﻿@inject NavigationManager NavigationManager
+@implements IAsyncDisposable
+@inject HttpClient Http
+
+<div>
+    <button @onclick="@GetStreamingQueInfo">큐정보 리셋</button>
+</div>
+<div>
+    <p>동영상의 갯수 : @Count</p>
+
+    <ul id="messagesList">
+        @foreach (var msg in messages)
+        {
+            <li>@msg</li>
+        }
+    </ul>
+</div>
+
+@code {
+    private HubConnection hubConnection;
+    private List<string> messages = new List<string>();
+    private int Count;
+    private int roomId = 1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        hubConnection = new HubConnectionBuilder()
+            .WithUrl(NavigationManager.ToAbsoluteUri("/queinfohub"))
+            .Build();
+
+        hubConnection.On<StreamingQueInfo>("StreamingQueInfo", (queinfo) =>
+        {
+            messages.Clear();
+            foreach (var item in queinfo.Infos)
+            {
+                var encodingMsg = $"{item.RoomID} : {item.Owner}  >>  {item.FileOgName}";
+                messages.Add(encodingMsg);
+            }
+            Count = queinfo.Count;
+            StateHasChanged();
+        });
+
+        await hubConnection.StartAsync();
+
+        await Http.PostAsync(@$"streaming/{roomId}", null);
+    }
+
+    public bool IsConnected =>
+        hubConnection.State == HubConnectionState.Connected;
+
+    public async ValueTask DisposeAsync()
+    {
+        await hubConnection.DisposeAsync();
+    }
+
+    public async Task GetStreamingQueInfo()
+    {
+        await Http.PostAsync(@$"streaming/{roomId}", null);
+    }
+
+    public class StreamingQueInfo
+    {
+        public int Count { get; set; }
+        public IEnumerable<StreamingInfo> Infos { get; set; }
+    }
+
+    public class StreamingInfo
+    {
+        public int RoomID { get; set; }
+        public string Owner { get; set; }
+        public string FileName { get; set; }
+        public string FileOgName { get; set; }
+    }
+}
+

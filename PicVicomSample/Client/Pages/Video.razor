@@ -1,21 +1,19 @@
 ﻿@page "/video"
 @inject IJSRuntime JS
-@using System.Net.Http
 @inject HttpClient Http
 
 <hr />
 
 <div id="stream"></div>
 <div>
-    <RadzenUpload Url=@uploadUrl Progress="@((args) => OnProgress(args, "Single file upload"))" />
-</div>
-<div>
+    <RadzenUpload Url=@uploadUrl Progress="@((args) => OnProgress(args))" Accept="video/mp4" />
     <h4>@progress%</h4>
 </div>
 <hr />
 
 <Chat></Chat>
 
+<QueInfo></QueInfo>
 
 @code 
 { 
@@ -32,11 +30,9 @@
     }
 
     int progress;
-    string info;
 
-    void OnProgress(Radzen.UploadProgressArgs args, string name)
+    void OnProgress(Radzen.UploadProgressArgs args)
     {
-        this.info = $"% '{name}' / {args.Loaded} of {args.Total} bytes.";
         this.progress = args.Progress;
     }
 

@@ -6,6 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using PicVicomSample.Server.StreamingClass;
 using PicVicomSample.Server.Models;
+using PicVicomSample.Server.Hubs;
+using Microsoft.AspNetCore.SignalR;
 
 namespace PicVicomSample.Server.Controllers
 {
@@ -13,14 +15,21 @@ namespace PicVicomSample.Server.Controllers
     [ApiController]
     public class StreamingController : ControllerBase
     {
-        [HttpGet("{roomId}")]
-        public async Task<StreamingQueInfo> GetStreamingQueInfo(int roomId)
+        private readonly IHubContext<QueinfoHub> _hubContext;
+
+        public StreamingController(IHubContext<QueinfoHub> hubContext)
+        {
+            _hubContext = hubContext;
+        }
+
+        [HttpPost("{roomId}")]
+        public async Task GetStreamingQueInfo(int roomId)
         {
             if (!Streaming.Instance.StreamingQue.ContainsKey(roomId))
             {
                 await Streaming.Instance.AddRoom(roomId);
             }
-            return new StreamingQueInfo(Streaming.Instance.StreamingQue[roomId]);
+            await _hubContext.Clients.All.SendAsync("StreamingQueInfo", new StreamingQueInfo(Streaming.Instance.StreamingQue[roomId]));
         }
 
         [HttpGet("isstreaming/{roomId}")]
@@ -41,16 +50,6 @@ namespace PicVicomSample.Server.Controllers
                 return null;
             }
             return Streaming.Instance.RoomFFmpeg[roomId].Info;
-        }
-
-        [HttpPost("enque")]
-        public async Task EnQue(StreamingInfo f)
-        {
-            if (!Streaming.Instance.StreamingQue.ContainsKey(f.RoomID))
-            {
-                await Streaming.Instance.AddRoom(f.RoomID);
-            }
-            Streaming.Instance.EnQue(f.RoomID, f);
         }
 
     }

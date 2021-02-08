@@ -1,6 +1,8 @@
-﻿using System;
+﻿using PicVicomSample.Server.Hubs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace PicVicomSample.Server.StreamingClass
@@ -9,7 +11,7 @@ namespace PicVicomSample.Server.StreamingClass
     {
         #region 싱글톤
         //private 생성자 
-        private Streaming() { }
+        private Streaming() { httpclient.BaseAddress = baseurl; }
         //private static 인스턴스 객체
         private static readonly Lazy<Streaming> _instance = new Lazy<Streaming>(() => new Streaming());
         //public static 의 객체반환 함수
@@ -18,6 +20,8 @@ namespace PicVicomSample.Server.StreamingClass
 
         public Dictionary<int, Queue<StreamingInfo>> StreamingQue { get; private set; } = new Dictionary<int, Queue<StreamingInfo>>();
         public Dictionary<int, StreamingFFmpeg> RoomFFmpeg { get; private set; } = new Dictionary<int, StreamingFFmpeg>();
+        private HttpClient httpclient = new HttpClient();
+        private Uri baseurl = new Uri("https://localhost:5001/");
 
         public bool IsStreaming(int roomID)
         {
@@ -62,8 +66,9 @@ namespace PicVicomSample.Server.StreamingClass
                     return;
                 }
                 s.Info = info;
+                await httpclient.PostAsync(@$"streaming/{roomId}", null);
                 await s.DoStreaming();
-                await Task.Delay(1000);
+                await Task.Delay(10);
             }
         }
 

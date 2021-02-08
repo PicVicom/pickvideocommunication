@@ -10,5 +10,6 @@ namespace PicVicomSample.Server.StreamingClass
         public int RoomID { get; set; }
         public string Owner { get; set; }
         public string FileName { get; set; }
+        public string FileOgName { get; set; }
     }
 }
