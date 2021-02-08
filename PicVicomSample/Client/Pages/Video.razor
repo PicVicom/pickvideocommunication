@@ -1,0 +1,45 @@
+﻿@page "/video"
+@inject IJSRuntime JS
+@inject HttpClient Http
+
+<hr />
+
+<div id="stream"></div>
+<div>
+    <RadzenUpload Url=@uploadUrl Progress="@((args) => OnProgress(args))" Accept="video/mp4" />
+    <h4>@progress%</h4>
+</div>
+<hr />
+
+<Chat></Chat>
+
+<QueInfo></QueInfo>
+
+@code 
+{ 
+
+    public int roomID = 1;
+    public string Owner = "test";
+
+    public string uploadUrl = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        JS.InvokeVoidAsync("JanusInit", null);
+        uploadUrl = @$"upload/{roomID}/{Owner}";
+    }
+
+    int progress;
+
+    void OnProgress(Radzen.UploadProgressArgs args)
+    {
+        this.progress = args.Progress;
+    }
+
+    private class StreamingInfo
+    {
+        public int RoomID { get; set; }
+        public string Owner { get; set; }
+        public string FileName { get; set; }
+    }
+}

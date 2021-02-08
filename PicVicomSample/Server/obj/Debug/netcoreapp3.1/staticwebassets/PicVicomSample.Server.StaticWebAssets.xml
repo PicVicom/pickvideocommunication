@@ -1,0 +1,9 @@
+﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="/" Path="C:\Users\dnfls\OneDrive\바탕 화면\새 폴더 (2)\pickvideocommunication-master\PicVicomSample\Client\bin\Debug\netstandard2.1\wwwroot\" />
+  <ContentRoot BasePath="/" Path="C:\Users\dnfls\OneDrive\바탕 화면\새 폴더 (2)\pickvideocommunication-master\PicVicomSample\Client\wwwroot\" />
+  <ContentRoot BasePath="/Identity" Path="C:\Users\dnfls\.nuget\packages\microsoft.aspnetcore.identity.ui\3.1.11\staticwebassets\V4\" />
+  <ContentRoot BasePath="_content/BlazorStrap" Path="C:\Users\dnfls\.nuget\packages\blazorstrap\1.3.3\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/MatBlazor" Path="C:\Users\dnfls\.nuget\packages\matblazor\2.8.0\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication" Path="C:\Users\dnfls\.nuget\packages\microsoft.aspnetcore.components.webassembly.authentication\3.2.1\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Radzen.Blazor" Path="C:\Users\dnfls\.nuget\packages\radzen.blazor\3.0.7\build\..\staticwebassets\" />
+</StaticWebAssets>

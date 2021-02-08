@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+
+@inject NavigationManager Navigation
+@inject SignOutSessionStateManager SignOutManager
+
+<AuthorizeView>
+    <Authorized>
+        <a href="authentication/profile" class="nav-link text-dark">안녕하세요. @context.User.Identity.Name 님!</a>
+        <button class="nav-link text-dark btn btn-link" @onclick="BeginSignOut">로그아웃</button>
+
+    </Authorized>
+    <NotAuthorized>
+        <a href="authentication/register" class="nav-link text-dark">회원가입</a>
+        <a href="authentication/login" class="nav-link text-dark">로그인</a>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+@code{
+    private async Task BeginSignOut(MouseEventArgs args)
+    {
+        await SignOutManager.SetSignOutState();
+        Navigation.NavigateTo("authentication/logout");
+    }
+}
