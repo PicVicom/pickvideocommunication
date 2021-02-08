@@ -27,7 +27,11 @@
     }
 </ul>
 
-@code { private HubConnection hubConnection;
+@code { 
+    [Parameter]
+    public int RoomID { get; set; }
+
+    private HubConnection hubConnection;
     private List<string> messages = new List<string>();
     private string UserId;
     private string messageInput;
@@ -44,11 +48,17 @@
             UserId = user.Identity.Name;
             _claims = user.Claims;
         }
+        else
+        {
+            Random r = new Random();
+            var userUid = r.Next(1000, 10000);
+            UserId = $"ㅇㅇ({userUid})";
+        }
     }
 
     #region 채팅
     Task Send() =>
-hubConnection.SendAsync("SendMessage", UserId, messageInput);
+        hubConnection.SendAsync("SendMessage", UserId, messageInput);
 
     public bool IsConnected =>
         hubConnection.State == HubConnectionState.Connected;
@@ -63,6 +73,8 @@ hubConnection.SendAsync("SendMessage", UserId, messageInput);
     protected override async Task OnInitializedAsync()
     {
         await GetClaimsPrincipalData();
+
+
 
         hubConnection = new HubConnectionBuilder()
         .WithUrl(NavigationManager.ToAbsoluteUri("/chathub"))
