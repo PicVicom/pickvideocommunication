@@ -577,6 +577,6 @@ C:\Users\son20\pickvideocommunication\PicVicomSample\Client\obj\Debug\netstandar
 C:\Users\son20\pickvideocommunication\PicVicomSample\Client\obj\Debug\netstandard2.1\PicVicomSample.Client.csproj.CopyComplete
 C:\Users\son20\pickvideocommunication\PicVicomSample\Client\obj\Debug\netstandard2.1\PicVicomSample.Client.dll
 C:\Users\son20\pickvideocommunication\PicVicomSample\Client\obj\Debug\netstandard2.1\PicVicomSample.Client.pdb
-C:\Users\son20\pickvideocommunication\PicVicomSample\Client\obj\Debug\netstandard2.1\integrity\pc5TcoIkqB0Pqw0Z-0yieEVtywTxFCvqHEJbU2YX_0A=.hash
-C:\Users\son20\pickvideocommunication\PicVicomSample\Client\obj\Debug\netstandard2.1\integrity\JiFOPwqIHcDlzn9mWliYnj9eh3qQD1wAXQBUWJnQC78=.hash
-C:\Users\son20\pickvideocommunication\PicVicomSample\Client\obj\Debug\netstandard2.1\integrity\HUSgasLs5k08BgITG7nnYrtZ1lEmRAmZhg41EM19w1M=.hash
+C:\Users\son20\pickvideocommunication\PicVicomSample\Client\obj\Debug\netstandard2.1\integrity\Q6-MPhbIjkeRb3oCDJzHDQqjVnTNVTZZ7mrXw0yPMQM=.hash
+C:\Users\son20\pickvideocommunication\PicVicomSample\Client\obj\Debug\netstandard2.1\integrity\2Q2CxgWDWHQMUwXlC5dc19k-uP1u6BzupT95GjG2WBg=.hash
+C:\Users\son20\pickvideocommunication\PicVicomSample\Client\obj\Debug\netstandard2.1\integrity\EkpO2vIQrmA42zS3Doa4WPnwu07esChhc5p_M3Xtux4=.hash

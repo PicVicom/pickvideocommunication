@@ -29,7 +29,8 @@ namespace PicVicomSample.Server.Controllers
             {
                 await Streaming.Instance.AddRoom(roomId);
             }
-            await _hubContext.Clients.All.SendAsync("StreamingQueInfo", new StreamingQueInfo(Streaming.Instance.StreamingQue[roomId]));
+            var info = new StreamingQueInfo(Streaming.Instance.StreamingQue[roomId]);
+            await _hubContext.Clients.Group($"{roomId}").SendAsync("StreamingQueInfo", info);
         }
 
         [HttpGet("isstreaming/{roomId}")]

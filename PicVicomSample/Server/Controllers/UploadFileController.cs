@@ -41,7 +41,8 @@ namespace PicVicomSample.Server.Controllers
 
                 Streaming.Instance.EnQue(streaminginfo.RoomID, streaminginfo);
 
-                await _hubContext.Clients.All.SendAsync("StreamingQueInfo", new StreamingQueInfo(Streaming.Instance.StreamingQue[roomid]));
+                var info = new StreamingQueInfo(Streaming.Instance.StreamingQue[roomid]);
+                await _hubContext.Clients.Group($"{roomid}").SendAsync("StreamingQueInfo", info);
 
                 return Ok();
             }

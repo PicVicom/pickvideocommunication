@@ -16,6 +16,13 @@ namespace PicVicomSample.Server.Hubs
             {
                 await Streaming.Instance.AddRoom(roomId);
             }
+            var info = new StreamingQueInfo(Streaming.Instance.StreamingQue[roomId]);
+            await Clients.Group($"{roomId}").SendAsync("StreamingQueInfo", info);
+        }
+
+        public async Task AddToQueGroup(int RoomId)
+        {
+            await Groups.AddToGroupAsync(Context.ConnectionId, $"{RoomId}");
         }
     }
 }

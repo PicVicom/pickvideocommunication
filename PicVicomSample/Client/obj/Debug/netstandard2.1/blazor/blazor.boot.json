@@ -6,7 +6,7 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
-      "PicVicomSample.Client.dll": "sha256-pc5TcoIkqB0Pqw0Z\/0yieEVtywTxFCvqHEJbU2YX+0A=",
+      "PicVicomSample.Client.dll": "sha256-Q6\/MPhbIjkeRb3oCDJzHDQqjVnTNVTZZ7mrXw0yPMQM=",
       "Microsoft.AspNetCore.SignalR.Client.dll": "sha256-j0tK4hEH1NwwDYTCgfgKOzhjPtn51xEZMmehIYaUtvo=",
       "Microsoft.Extensions.DependencyInjection.Abstractions.dll": "sha256-O+AClmxYmKcKCv\/PvQk4tx2T7TlTwypImRCpMNwiwms=",
       "netstandard.dll": "sha256-\/zcPVM75OAY+joGVM8yIC1gO1SFYWP1CFERgQ8PJkfA=",
@@ -81,7 +81,7 @@
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-czNf3btAeBW\/vvID5LAfgcsNZ+GM3ssVuPaMflcg0rs="
     },
     "pdb": {
-      "PicVicomSample.Client.pdb": "sha256-JiFOPwqIHcDlzn9mWliYnj9eh3qQD1wAXQBUWJnQC78=",
+      "PicVicomSample.Client.pdb": "sha256-2Q2CxgWDWHQMUwXlC5dc19k\/uP1u6BzupT95GjG2WBg=",
       "System.Linq.Dynamic.Core.pdb": "sha256-zOBZ+bv44N0h0EaRYZhGqngeYcBonLjpA36C+TrA\/lA="
     },
     "runtime": {

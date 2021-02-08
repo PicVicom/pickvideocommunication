@@ -167,8 +167,8 @@ using Radzen.Blazor;
         });
 
         await hubConnection.StartAsync();
-
-        await Http.PostAsync(@$"streaming/{RoomId}", null);
+        await hubConnection.SendAsync("AddToQueGroup", RoomId);
+        await hubConnection.SendAsync("SendQueInfo", RoomId);
     }
 
     public bool IsConnected =>
@@ -181,7 +181,7 @@ using Radzen.Blazor;
 
     public async Task GetStreamingQueInfo()
     {
-        await Http.PostAsync(@$"streaming/{RoomId}", null);
+        await hubConnection.SendAsync("SendQueInfo", RoomId);
     }
 
     public class StreamingQueInfo

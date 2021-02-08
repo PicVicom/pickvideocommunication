@@ -155,7 +155,7 @@ using Radzen.Blazor;
 
     #region 채팅
     Task Send() =>
-        hubConnection.SendAsync("SendMessage", UserId, messageInput);
+        hubConnection.SendAsync("SendMessage", RoomID, UserId, messageInput);
 
     public bool IsConnected =>
         hubConnection.State == HubConnectionState.Connected;
@@ -181,6 +181,7 @@ using Radzen.Blazor;
         });
 
         await hubConnection.StartAsync();
+        await hubConnection.SendAsync("AddToGroup", RoomID, UserId);
     }
 
 

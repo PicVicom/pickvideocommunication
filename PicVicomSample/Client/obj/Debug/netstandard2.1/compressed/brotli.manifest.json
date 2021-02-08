@@ -1,7 +1,7 @@
 {
   "FilesToCompress": [
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\pc5TcoIkqB0Pqw0Z-0yieEVtywTxFCvqHEJbU2YX_0A=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\Q6-MPhbIjkeRb3oCDJzHDQqjVnTNVTZZ7mrXw0yPMQM=.hash",
       "Source": "C:\\Users\\son20\\pickvideocommunication\\PicVicomSample\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\PicVicomSample.Client.dll",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/PicVicomSample.Client.dll.br"
     },
@@ -366,7 +366,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.JSInterop.WebAssembly.dll.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\JiFOPwqIHcDlzn9mWliYnj9eh3qQD1wAXQBUWJnQC78=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\2Q2CxgWDWHQMUwXlC5dc19k-uP1u6BzupT95GjG2WBg=.hash",
       "Source": "C:\\Users\\son20\\pickvideocommunication\\PicVicomSample\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\PicVicomSample.Client.pdb",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/PicVicomSample.Client.pdb.br"
     },
@@ -396,7 +396,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.webassembly.js.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\HUSgasLs5k08BgITG7nnYrtZ1lEmRAmZhg41EM19w1M=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\EkpO2vIQrmA42zS3Doa4WPnwu07esChhc5p_M3Xtux4=.hash",
       "Source": "C:\\Users\\son20\\pickvideocommunication\\PicVicomSample\\Client\\obj\\Debug\\netstandard2.1\\blazor\\blazor.boot.json",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.boot.json.br"
     }
