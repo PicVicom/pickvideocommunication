@@ -167,7 +167,7 @@ function onRemoteStream(stream) {
         return;
     }
     var videoTracks = stream.getVideoTracks();
-    if ((!videoTracks || videoTracks.length === 0) || (!audioTracks || audioTracks.length === 0)) {
+    if (!videoTracks || videoTracks.length === 0) {
         // 비디오가 없을때
         if($('#stream .no-video-container').length === 0) {
             $('#stream').append(
