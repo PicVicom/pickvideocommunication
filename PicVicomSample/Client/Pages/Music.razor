@@ -23,6 +23,8 @@
 
     public string uploadUrl = string.Empty;
 
+    public int StreamingType = (int)StreamingTypeEnum.Music;
+
     private IEnumerable<Claim> _claims = Enumerable.Empty<Claim>();
     private string UserId;
 
@@ -47,7 +49,7 @@
     protected override void OnInitialized()
     {
         GetClaimsPrincipalData();
-        JS.InvokeVoidAsync("SetJanusValues", roomID, UserId);
+        JS.InvokeVoidAsync("SetJanusValues", roomID, UserId, StreamingType);
         JS.InvokeVoidAsync("JanusInit", null);
         uploadUrl = @$"upload/music/{roomID}/{UserId}";
     }

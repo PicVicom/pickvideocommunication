@@ -10,10 +10,12 @@ var streaming = null;
 var opaqueId = "streamingtest-"+Janus.randomString(12);
 var selectedStream = null;
 var janusinitsuccess = false;
+var StreamingType = null;
 
-function SetJanusValues(roomId, ID) {
+function SetJanusValues(roomId, ID, type) {
     selectedStream = roomId;
     opaqueId = ID;
+    StreamingType = type;
 }
 
 function JanusInit() {
@@ -26,6 +28,7 @@ function JanusInit() {
             {
                 server: server,
                 success: function () {
+                    Janus.log("============ selectedStream = " + selectedStream + " opaqueId = " + opaqueId + " StreamingType = " + StreamingType + " ============");
                     StreamingAttach()
                 },
                 error: function(error) {
@@ -122,7 +125,7 @@ function onMsg(msg, jsep) {
                 customizeSdp: function(jsep) {
                     if(stereo && jsep.sdp.indexOf("stereo=1") == -1) {
                         // 오디오에 스테리오 설정 있으면
-                        jsep.sdp = jsep.sdp.replace("useinbandfec=1", "useinbandfec=1;stereo=1");
+                        jsep.sdp = jsep.sdp.replace("stereo=1");
                     }
                 },
                 success: function(jsep) {
@@ -142,7 +145,12 @@ function onRemoteStream(stream) {
     if($('#remotevideo').length === 0) {
         Janus.log(" ::: remotevideo == 0 :::");
         addButtons = true;
-        $('#stream').append('<video class="rounded centered hide" id="remotevideo" width="50%" height="50%" playsinline controls autoplay/>');
+        if (StreamingType == 2) {
+            $('#stream').append('<audio class="rounded centered hide" id="remotevideo" width="100%" playsinline controls autoplay/>')
+        }
+        else {
+            $('#stream').append('<video class="rounded centered hide" id="remotevideo" width="100%" playsinline controls autoplay/>');
+        }
         $('#remotevideo').get(0).volume = 0.5;
         $("#remotevideo").bind("playing", function () {
             Janus.log(" ::: playing stream :::");
@@ -155,8 +163,11 @@ function onRemoteStream(stream) {
         });
     }
     Janus.attachMediaStream($('#remotevideo').get(0), stream);
+    if (StreamingType == 2) {
+        return;
+    }
     var videoTracks = stream.getVideoTracks();
-    if(!videoTracks || videoTracks.length === 0) {
+    if ((!videoTracks || videoTracks.length === 0) || (!audioTracks || audioTracks.length === 0)) {
         // 비디오가 없을때
         if($('#stream .no-video-container').length === 0) {
             $('#stream').append(
@@ -170,11 +181,7 @@ function onRemoteStream(stream) {
 }
 
 function startStream() {
-	Janus.log("Selected video id #" + selectedStream);
-	if(!selectedStream) {
-		bootbox.alert("Select a stream from the list");
-		return;
-	}
+	Janus.log("Selected Stream id #" + selectedStream);
 	var body = { request: "watch", id: parseInt(selectedStream) || selectedStream};
 	streaming.send({ message: body });
 }
