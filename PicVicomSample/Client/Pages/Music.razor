@@ -47,6 +47,7 @@
     protected override void OnInitialized()
     {
         GetClaimsPrincipalData();
+        JS.InvokeVoidAsync("SetJanusValues", roomID, UserId);
         JS.InvokeVoidAsync("JanusInit", null);
         uploadUrl = @$"upload/music/{roomID}/{UserId}";
     }

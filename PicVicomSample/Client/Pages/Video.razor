@@ -49,7 +49,7 @@
         GetClaimsPrincipalData();
         JS.InvokeVoidAsync("SetJanusValues", roomID, UserId);
         JS.InvokeVoidAsync("JanusInit", null);
-        uploadUrl = @$"upload/{roomID}/{UserId}";
+        uploadUrl = @$"upload/video/{roomID}/{UserId}";
     }
 
     int progress;

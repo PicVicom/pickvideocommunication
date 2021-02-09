@@ -8,13 +8,12 @@ else
 var janus = null;
 var streaming = null;
 var opaqueId = "streamingtest-"+Janus.randomString(12);
-var selectedStream = 1;
+var selectedStream = null;
 var janusinitsuccess = false;
 
 function SetJanusValues(roomId, ID) {
     selectedStream = roomId;
     opaqueId = ID;
-    alert("roomid = " + roomid + " id = " + opaqueId);
 }
 
 function JanusInit() {
@@ -164,7 +163,7 @@ function onRemoteStream(stream) {
             $('#stream').append(
                 '<div class="no-video-container">' +
                 '<i class="fa fa-video-camera fa-5 no-video-icon"></i>' +
-                '<span class="no-video-text">' + opaqueId + 'No remote video available</span>' +
+                '<span class="no-video-text">스트리밍하고 있지않습니다. 파일을 업로드 해주세요!!</span>' +
                 '</div>');
         }
     } else {
