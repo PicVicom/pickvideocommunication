@@ -43,14 +43,15 @@ namespace PicVicomSample.Server.Controllers
             return Streaming.Instance.IsStreaming(roomId);
         }
 
-        [HttpGet("streaminginfo/{roomId}")]
-        public StreamingInfo GetStreamingInfo(int roomId)
+        [HttpPost("streaminginfo/{roomId}")]
+        public async Task GetStreamingInfoAsync(int roomId)
         {
             if (!Streaming.Instance.RoomFFmpeg.ContainsKey(roomId))
             {
-                return null;
+                await Streaming.Instance.AddRoom(roomId);
             }
-            return Streaming.Instance.RoomFFmpeg[roomId].Info;
+            await _hubContext.Clients.Group($"{roomId}").SendAsync("StreamingInfo", Streaming.Instance.RoomFFmpeg[roomId].Info);
+
         }
 
     }

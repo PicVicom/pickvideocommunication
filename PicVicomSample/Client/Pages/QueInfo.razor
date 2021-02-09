@@ -6,7 +6,8 @@
     <button @onclick="@GetStreamingQueInfo">큐정보 리셋</button>
 </div>
 <div>
-    <p>동영상의 갯수 : @Count</p>
+    <h4>현재 비디오 : @NowStreamingInfo</h4>
+    <p>대기중인 동영상의 갯수 : @Count</p>
 
     <ul id="messagesList">
         @foreach (var msg in messages)
@@ -20,7 +21,8 @@
     [Parameter]
     public int RoomId { get; set; }
 
-    private HubConnection hubConnection;
+    private string NowStreamingInfo = string.Empty;
+    public HubConnection hubConnection;
     private List<string> messages = new List<string>();
     private int Count;
 
@@ -42,10 +44,18 @@
             StateHasChanged();
         });
 
+        hubConnection.On<StreamingInfo>("StreamingInfo", (info) =>
+        {
+            NowStreamingInfo = $"{info.FileOgName} - {info.Owner}";
+            StateHasChanged();
+        });
+
         await hubConnection.StartAsync();
         await hubConnection.SendAsync("AddToQueGroup", RoomId);
         await hubConnection.SendAsync("SendQueInfo", RoomId);
     }
+
+    
 
     public bool IsConnected =>
         hubConnection.State == HubConnectionState.Connected;

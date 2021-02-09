@@ -67,6 +67,7 @@ namespace PicVicomSample.Server.StreamingClass
                 }
                 s.Info = info;
                 await httpclient.PostAsync(@$"streaming/{roomId}", null);
+                await httpclient.PostAsync(@$"streaming/streaminginfo/{roomId}", null);
                 if (ismusic)
                     await s.DoStreaming("musicstreaming");
                 else

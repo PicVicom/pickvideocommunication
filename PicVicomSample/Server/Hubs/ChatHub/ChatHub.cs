@@ -21,5 +21,11 @@ namespace BlazorSignalRApp.Server.Hubs
 
             await Clients.Group(rid).SendAsync("Send", $"{user} has joined the group {RoomId}.");
         }
+
+        //public override async Task OnDisconnectedAsync(Exception exception)
+        //{
+        //    await Groups.RemoveFromGroupAsync(Context.ConnectionId, groupName);
+        //    return base.OnDisconnectedAsync(exception); 
+        //}
     }
 }
