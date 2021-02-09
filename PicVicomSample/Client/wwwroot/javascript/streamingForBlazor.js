@@ -158,17 +158,14 @@ function onRemoteStream(stream) {
     var videoTracks = stream.getVideoTracks();
     if(!videoTracks || videoTracks.length === 0) {
         // 비디오가 없을때
-       // $('#remotevideo').hide();
         if($('#stream .no-video-container').length === 0) {
             $('#stream').append(
                 '<div class="no-video-container">' +
-                '<i class="fa fa-video-camera fa-5 no-video-icon"></i>' +
                 '<span class="no-video-text">스트리밍하고 있지않습니다. 파일을 업로드 해주세요!!</span>' +
                 '</div>');
         }
     } else {
         $('#stream .no-video-container').remove();
-        $('#remotevideo').removeClass('hide').show();
     }
 }
 
