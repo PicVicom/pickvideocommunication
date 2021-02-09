@@ -9,11 +9,13 @@ namespace PicVicomSample.Server
 {
     public class UploadFIle
     {
-        public UploadFIle(IFormFile file)
+        public UploadFIle(IFormFile file, bool ismusic)
         {
             File = file;
             OriginalName = file.FileName;
             Extension = "." + OriginalName.Split('.')[OriginalName.Split('.').Length - 1];
+            IsMusic = ismusic;
+
         }
 
         public IFormFile File { get; set; }
@@ -21,6 +23,7 @@ namespace PicVicomSample.Server
         public string Name { get; set; }
         public string Extension { get; set; }
         public string FileBaseFolder { get; set; } = @"C:\samplevideo";
+        public bool IsMusic { get; private set; }
 
         public async Task WriteFile()
         {
@@ -50,7 +53,11 @@ namespace PicVicomSample.Server
 
         public bool CheckIfExcelFile()
         {
+            if (IsMusic)
+                return (Extension == ".mp3");
+
             return (Extension == ".mp4");
         }
+
     }
 }

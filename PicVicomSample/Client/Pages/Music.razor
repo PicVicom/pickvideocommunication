@@ -1,4 +1,4 @@
-﻿@page "/video"
+﻿@page "/music"
 @inject IJSRuntime JS
 @inject HttpClient Http
 @inject AuthenticationStateProvider AuthenticationStateProvider
@@ -7,7 +7,7 @@
 
 <div id="stream"></div>
 <div>
-    <RadzenUpload Url=@uploadUrl Progress="@((args) => OnProgress(args))" Accept="video/mp4" />
+    <RadzenUpload Url=@uploadUrl Progress="@((args) => OnProgress(args))" Accept="audio/mp3" />
     <h4>@progress%</h4>
 </div>
 <hr />
@@ -19,7 +19,7 @@
 @code
 {
 
-    public int roomID = 1;
+    public int roomID = 2;
 
     public string uploadUrl = string.Empty;
 
@@ -47,9 +47,8 @@
     protected override void OnInitialized()
     {
         GetClaimsPrincipalData();
-        JS.InvokeVoidAsync("SetJanusValues", roomID, UserId);
         JS.InvokeVoidAsync("JanusInit", null);
-        uploadUrl = @$"upload/{roomID}/{UserId}";
+        uploadUrl = @$"upload/music/{roomID}/{UserId}";
     }
 
     int progress;

@@ -15,17 +15,13 @@ namespace PicVicomSample.Server.StreamingClass
         public string FFmpegCommand { get; private set; } = string.Empty;
         public CancellationTokenSource CancelToken { get; private set; }
 
-        public async Task DoStreaming()
+        public async Task DoStreaming(string streamingType)
         {
             try
             {
                 CancelToken = new CancellationTokenSource();
                 var con = FFmpeg.Conversions.New();
-
-                //StreamingCommand = @$"-re -i {FileBaseFolder}/{filename} -map 0 -c:v copy -c:a copy -f flv rtmp://pickvideocommunication.icu:1935/{roomid}/stream";
-
-                //테스트용 코드
-                FFmpegCommand = @$"-re -i {FileBaseFolder}/{Info.FileName} -map 0 -c:v copy -c:a copy -f flv rtmp://pickvideocommunication.icu:1935/test/stream";
+                FFmpegCommand = @$"-re -i {FileBaseFolder}/{Info.FileName} -map 0 -c:v copy -c:a copy -f flv rtmp://pickvideocommunication.icu:1935/{streamingType}/stream";
 
                 await con.Start(FFmpegCommand, CancelToken.Token);
             }
@@ -38,14 +34,23 @@ namespace PicVicomSample.Server.StreamingClass
                 Info = null;
             }
         }
-        public async Task<bool> StopStreaming()
+
+        public bool StopStreaming()
         {
             if (!IsStreaming)
             {
                 return false;
             }
-            CancelToken.Cancel();
-            return true;
+
+            try
+            {
+                CancelToken.Cancel();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
         
     }

@@ -8,8 +8,14 @@ else
 var janus = null;
 var streaming = null;
 var opaqueId = "streamingtest-"+Janus.randomString(12);
-var selectedStream = null;
+var selectedStream = 1;
 var janusinitsuccess = false;
+
+function SetJanusValues(roomId, ID) {
+    selectedStream = roomId;
+    opaqueId = ID;
+    alert("roomid = " + roomid + " id = " + opaqueId);
+}
 
 function JanusInit() {
     Janus.init({debug: "all", callback: function() {
@@ -46,7 +52,7 @@ function StreamingAttach() {
             success: function(pluginHandle) {
                 streaming = pluginHandle;
                 Janus.log("Plugin attached! (" + streaming.getPlugin() + ", id=" + streaming.getId() + ")");
-                updateStreamsList();
+                startStream()
             },
             error: function(error) {
                 Janus.error("  -- Error attaching plugin... ", error);
@@ -157,42 +163,14 @@ function onRemoteStream(stream) {
         if($('#stream .no-video-container').length === 0) {
             $('#stream').append(
                 '<div class="no-video-container">' +
-                    '<i class="fa fa-video-camera fa-5 no-video-icon"></i>' +
-                    '<span class="no-video-text">No remote video available</span>' +
+                '<i class="fa fa-video-camera fa-5 no-video-icon"></i>' +
+                '<span class="no-video-text">' + opaqueId + 'No remote video available</span>' +
                 '</div>');
         }
     } else {
         $('#stream .no-video-container').remove();
         $('#remotevideo').removeClass('hide').show();
     }
-}
-
-function updateStreamsList() {
-	var body = { request: "list" };
-	Janus.debug("Sending message:", body);
-	streaming.send({ message: body, success: function(result) {
-		if(!result) {
-			bootbox.alert("Got no response to our query for available streams");
-			return;
-		}
-		if(result["list"]) {
-			var list = result["list"];
-			Janus.log("Got a list of available streams");
-			if(list && Array.isArray(list)) {
-				list.sort(function(a, b) {
-					if(!a || a.id < (b ? b.id : 0))
-						return -1;
-					if(!b || b.id < (a ? a.id : 0))
-						return 1;
-					return 0;
-				});
-			}
-            Janus.debug(list);
-            var theFirstStream = list[0];
-            selectedStream = theFirstStream["id"];
-            startStream()
-		}
-	}});
 }
 
 function startStream() {

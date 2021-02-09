@@ -33,10 +33,10 @@ namespace PicVicomSample.Server.StreamingClass
             StreamingQue.Add(roomID, new Queue<StreamingInfo>());
             RoomFFmpeg.Add(roomID, new StreamingFFmpeg());
         }
-        public async Task EnQue(int roomID, StreamingInfo info)
+        public async Task EnQue(int roomID, StreamingInfo info, bool isMusic)
         {
             StreamingQue[roomID].Enqueue(info);
-            DoStreaming(roomID);
+            DoStreaming(roomID, isMusic);
         }
 
         public StreamingInfo DeQue (int roomID)
@@ -49,7 +49,7 @@ namespace PicVicomSample.Server.StreamingClass
             return null;
         }
 
-        public async Task DoStreaming(int roomId)
+        public async Task DoStreaming(int roomId, bool ismusic)
         {
             var s = RoomFFmpeg[roomId];
             if (s.IsStreaming)
@@ -67,14 +67,17 @@ namespace PicVicomSample.Server.StreamingClass
                 }
                 s.Info = info;
                 await httpclient.PostAsync(@$"streaming/{roomId}", null);
-                await s.DoStreaming();
+                if (ismusic)
+                    await s.DoStreaming("musicstreaming");
+                else
+                    await s.DoStreaming("videostreaming");
                 await Task.Delay(10);
             }
         }
 
-        public async Task<bool> StopStreaming(int roomID)
+        public bool StopStreaming(int roomID)
         {
-            return await RoomFFmpeg[roomID].StopStreaming();
+            return RoomFFmpeg[roomID].StopStreaming();
         }
     }
 }
