@@ -1,0 +1,60 @@
+﻿@page "/live"
+@inject IJSRuntime JS
+@inject HttpClient Http
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<hr />
+
+<div id="stream"></div>
+
+<h5>방송 송출 주소 : @uploadUrl</h5>
+<hr />
+
+<Chat RoomID="@roomID" UserId="@UserId"></Chat>
+
+
+@code
+{
+
+    public int roomID = 3;
+
+    public string uploadUrl = string.Empty;
+    public int StreamingType = (int)StreamingTypeEnum.Video;
+    private IEnumerable<Claim> _claims = Enumerable.Empty<Claim>();
+    private string UserId = string.Empty;
+
+    private async Task GetClaimsPrincipalData()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity.IsAuthenticated)
+        {
+            UserId = user.Identity.Name;
+            _claims = user.Claims;
+        }
+
+        if (UserId == string.Empty)
+        {
+            Random r = new Random();
+            var userUid = r.Next(1000, 100000);
+            UserId = $"ㅇㅇ({userUid})";
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetClaimsPrincipalData();
+        await JS.InvokeVoidAsync("SetJanusValues", roomID, UserId, StreamingType);
+        await JS.InvokeVoidAsync("JanusInit", null);
+        uploadUrl = @$"rtmp://localhost:1935/livestreaming/test";
+    }
+
+
+    private class StreamingInfo
+    {
+        public int RoomID { get; set; }
+        public string Owner { get; set; }
+        public string FileName { get; set; }
+    }
+}
