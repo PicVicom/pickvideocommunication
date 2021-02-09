@@ -161,7 +161,7 @@ function onRemoteStream(stream) {
         if($('#stream .no-video-container').length === 0) {
             $('#stream').append(
                 '<div class="no-video-container">' +
-                '<span class="no-video-text">스트리밍하고 있지않습니다. 파일을 업로드 해주세요!!</span>' +
+                '<span class="no-video-text">No streaming!! pls upload file!!</span>' +
                 '</div>');
         }
     } else {
