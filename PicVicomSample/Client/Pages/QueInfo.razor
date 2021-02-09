@@ -28,7 +28,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        //Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         hubConnection = new HubConnectionBuilder()
             .WithUrl(NavigationManager.ToAbsoluteUri("/queinfohub"))
             .Build();
@@ -50,19 +49,6 @@
             NowStreamingInfo = $"{info.FileOgName} - {info.Owner}";
             StateHasChanged();
         });
-
-        hubConnection.Closed += (exception) =>
-        {
-            if (exception == null)
-            {
-                Console.WriteLine("Connection closed without error.@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-            }
-            else
-            {
-                Console.WriteLine($"Connection closed due to an error: {exception}@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-            }
-            return null;
-        };
 
         await hubConnection.StartAsync();
         await hubConnection.SendAsync("AddToQueGroup", RoomId);

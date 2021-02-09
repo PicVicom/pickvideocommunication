@@ -18,6 +18,7 @@ namespace PicVicomSample.Server.Hubs
             }
             var info = new StreamingQueInfo(Streaming.Instance.StreamingQue[roomId]);
             await Clients.Group($"{roomId}").SendAsync("StreamingQueInfo", info);
+            await Clients.Group($"{roomId}").SendAsync("StreamingInfo", Streaming.Instance.RoomFFmpeg[roomId].Info);
         }
 
         public async Task AddToQueGroup(int RoomId)

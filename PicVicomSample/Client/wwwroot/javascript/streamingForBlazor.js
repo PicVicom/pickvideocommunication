@@ -7,7 +7,7 @@ else
 
 var janus = null;
 var streaming = null;
-var opaqueId = "streamingtest-"+Janus.randomString(12);
+var opaqueId = null;
 var selectedStream = null;
 var janusinitsuccess = false;
 var StreamingType = null;

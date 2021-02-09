@@ -63,6 +63,7 @@ namespace PicVicomSample.Server.StreamingClass
                 if (info == null)
                 {
                     s.IsStreaming = false;
+                    await httpclient.PostAsync(@$"streaming/streaminginfo/{roomId}", null);
                     return;
                 }
                 s.Info = info;

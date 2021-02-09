@@ -24,7 +24,7 @@
     public string uploadUrl = string.Empty;
     public int StreamingType = (int)StreamingTypeEnum.Video;
     private IEnumerable<Claim> _claims = Enumerable.Empty<Claim>();
-    private string UserId;
+    private string UserId = string.Empty;
 
     private async Task GetClaimsPrincipalData()
     {
@@ -36,7 +36,8 @@
             UserId = user.Identity.Name;
             _claims = user.Claims;
         }
-        else
+
+        if(UserId == string.Empty)
         {
             Random r = new Random();
             var userUid = r.Next(1000, 100000);
@@ -44,13 +45,14 @@
         }
     }
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        GetClaimsPrincipalData();
-        JS.InvokeVoidAsync("SetJanusValues", roomID, UserId, StreamingType);
-        JS.InvokeVoidAsync("JanusInit", null);
+        await GetClaimsPrincipalData();
+        await JS.InvokeVoidAsync("SetJanusValues", roomID, UserId, StreamingType);
+        await JS.InvokeVoidAsync("JanusInit", null);
         uploadUrl = @$"upload/video/{roomID}/{UserId}";
     }
+
 
     int progress;
 
