@@ -2,4 +2,6 @@ bin/
 obj/
 *.dbmdl
 *.jfm
+*.DBMDL
+*.JFM
 .vs/
