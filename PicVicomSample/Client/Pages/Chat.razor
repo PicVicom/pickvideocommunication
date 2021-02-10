@@ -61,8 +61,23 @@
             StateHasChanged();
         });
 
+        hubConnection.On<string>("Send", (message) =>
+        {
+            messages.Add(message);
+            StateHasChanged();
+        });
+
+        hubConnection.Closed += (exception) =>
+        {
+            hubConnection.SendAsync("CloseConnection", RoomID);
+            return Task.CompletedTask;
+        };
+
+
         await hubConnection.StartAsync();
         await hubConnection.SendAsync("AddToGroup", RoomID, UserId);
     }
+
+
 
 }

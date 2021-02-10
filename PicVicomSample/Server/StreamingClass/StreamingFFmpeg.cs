@@ -21,7 +21,7 @@ namespace PicVicomSample.Server.StreamingClass
             {
                 CancelToken = new CancellationTokenSource();
                 var con = FFmpeg.Conversions.New();
-                FFmpegCommand = @$"-re -i {FileBaseFolder}/{Info.FileName} -map 0 -c:v copy -c:a copy -f flv rtmp://pickvideocommunication.icu:1935/{streamingType}/stream";
+                FFmpegCommand = @$"-re -i {FileBaseFolder}/{Info.FileName} -map 0 -c:v copy -c:a copy -f flv rtmp://pickvideocommunication.icu:1935/{streamingType}/{Info.RoomID}";
 
                 await con.Start(FFmpegCommand, CancelToken.Token);
             }

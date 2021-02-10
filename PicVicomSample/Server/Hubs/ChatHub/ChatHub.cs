@@ -18,14 +18,15 @@ namespace BlazorSignalRApp.Server.Hubs
         {
             var rid = $"{RoomId}";
             await Groups.AddToGroupAsync(Context.ConnectionId, rid);
-
-            await Clients.Group(rid).SendAsync("Send", $"{user} has joined the group {RoomId}.");
+            await Clients.Group(rid).SendAsync("Send", $"{user}가 방#{RoomId} 으로 접속했습니다. ");
         }
 
-        //public override async Task OnDisconnectedAsync(Exception exception)
-        //{
-        //    await Groups.RemoveFromGroupAsync(Context.ConnectionId, groupName);
-        //    return base.OnDisconnectedAsync(exception); 
-        //}
+
+        public async Task CloseConnection(int RoomId, string user)
+        {
+            var rid = $"{RoomId}";
+            await Groups.RemoveFromGroupAsync(Context.ConnectionId, rid);
+            await Clients.Group(rid).SendAsync("Send", $"{user}가 방#{RoomId} 을 나갔습니다.");
+        }
     }
 }
