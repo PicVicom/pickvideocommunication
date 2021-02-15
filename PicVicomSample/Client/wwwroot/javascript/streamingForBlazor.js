@@ -146,7 +146,7 @@ function onRemoteStream(stream) {
         Janus.log(" ::: remotevideo == 0 :::");
         addButtons = true;
         if (StreamingType == 2) {
-            $('#stream').append('<audio class="rounded centered hide" id="remotevideo" width="100%" playsinline controls autoplay/>')
+            $('#stream').append('<audio class="rounded centered hide" id="remotevideo" width="100%" playsinline controls/>')
         }
         else {
             $('#stream').append('<video class="rounded centered hide" id="remotevideo" width="100%" playsinline controls autoplay/>');
