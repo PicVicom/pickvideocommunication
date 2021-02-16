@@ -5,7 +5,7 @@
 
 <hr />
 
-<div id="stream"></div>
+<Player roomID=@roomID UserId=@UserId StreamingType=StreamingType></Player>
 <div>
     <RadzenUpload Url=@uploadUrl Progress="@((args) => OnProgress(args))" Accept="audio/mp3" />
     <h4>@progress%</h4>
@@ -50,8 +50,6 @@
     protected override async Task OnInitializedAsync()
     {
         await GetClaimsPrincipalData();
-        await JS.InvokeVoidAsync("SetJanusValues", roomID, UserId, StreamingType);
-        await JS.InvokeVoidAsync("JanusInit", null);
         uploadUrl = @$"upload/music/{roomID}/{UserId}";
     }
 

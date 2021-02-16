@@ -1,0 +1,23 @@
+﻿@inject IJSRuntime JS
+
+
+<div id="stream"></div>
+
+
+
+@code { 
+    [Parameter]
+    public int roomID { get; set; }
+    [Parameter]
+    public string UserId { get; set; }
+    [Parameter]
+    public int StreamingType { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await JS.InvokeVoidAsync("SetJanusValues", roomID, UserId, StreamingType);
+        await JS.InvokeVoidAsync("JanusInit", null);
+    }
+
+
+}

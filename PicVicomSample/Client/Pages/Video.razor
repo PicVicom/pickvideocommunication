@@ -5,7 +5,7 @@
 
 <hr />
 
-<div id="stream"></div>
+<Player roomID=@roomID UserId=@UserId StreamingType=StreamingType></Player>
 <div>
     <RadzenUpload Url=@uploadUrl Progress="@((args) => OnProgress(args))" Accept="video/mp4" />
     <h4>@progress%</h4>
@@ -25,6 +25,7 @@
     public int StreamingType = (int)StreamingTypeEnum.Video;
     private IEnumerable<Claim> _claims = Enumerable.Empty<Claim>();
     private string UserId = string.Empty;
+    private int progress = 0;
 
     private async Task GetClaimsPrincipalData()
     {
@@ -48,13 +49,8 @@
     protected override async Task OnInitializedAsync()
     {
         await GetClaimsPrincipalData();
-        await JS.InvokeVoidAsync("SetJanusValues", roomID, UserId, StreamingType);
-        await JS.InvokeVoidAsync("JanusInit", null);
         uploadUrl = @$"upload/video/{roomID}/{UserId}";
     }
-
-
-    int progress;
 
     void OnProgress(Radzen.UploadProgressArgs args)
     {

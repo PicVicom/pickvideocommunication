@@ -5,7 +5,8 @@
 
 <hr />
 
-<div id="stream"></div>
+<Player roomID=@roomID UserId=@UserId StreamingType=StreamingType></Player>
+
 
 <h5>방송 송출 주소 : @uploadUrl</h5>
 <hr />
@@ -45,8 +46,6 @@
     protected override async Task OnInitializedAsync()
     {
         await GetClaimsPrincipalData();
-        await JS.InvokeVoidAsync("SetJanusValues", roomID, UserId, StreamingType);
-        await JS.InvokeVoidAsync("JanusInit", null);
         uploadUrl = @$"rtmp://pickvideocommunication.icu:1935/livestreaming/test";
     }
 
